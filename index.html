@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/estilos.css" rel="stylesheet" />
+
 </head>
 
 <body id="page-top">
@@ -38,7 +39,11 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Equipo</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contactos</a></li>
-                    <a class="btn btn-primary" style="width: fit-content;" id="boton1" href="#">Iniciar Sesión</a>
+                    <a class="btn btn-primary mr-3" style="width: fit-content;" data-toggle="modal"
+                        data-target="#loginModal">Iniciar Sesión</a>
+                    <a class="btn btn-primary" style="width: fit-content;" data-toggle="modal"
+                        data-target="#registerModal">Registrarse</a>
+
                 </ul>
 
             </div>
@@ -66,7 +71,7 @@
                             <a class="btn btn-primary mt-2" style="width: fit-content;" href="">Contratar servicio</a>
 
                         </h3>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 mb-4">
@@ -112,7 +117,8 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="servicios-img">
                         <img class="img-fluid" src="assets/img/servicios/6.jpg" alt="" />
-                        <h3 class="section-subheading text-muted text-center py-4 text-uppercase"> Servicio de cuidado de Niños<br>
+                        <h3 class="section-subheading text-muted text-center py-4 text-uppercase"> Servicio de cuidado
+                            de Niños<br>
                             <a class="btn btn-primary mt-2" style="width: fit-content;" href="">Contratar servicio</a>
 
                         </h3>
@@ -139,7 +145,7 @@
             <div class="row">
                 <div class="col-sm-6 col-md-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="" />
+                        <img class="mx-auto rounded-circle" src="assets/img/team/jefry.jpg" alt="" />
                         <h4>Jefry Navas</h4>
                         <p class="text-muted">Lead Designer</p>
                         <a class="btn btn-dark btn-social mx-2" href="https://github.com/JefryNavas" target="_blank"><i
@@ -266,19 +272,111 @@
     <footer class="footer py-4">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
-                <div class="col-lg-4 my-3 my-lg-0">
+                <div class="col-sm-3 col-md-4 col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
+                <div class="col-sm-6 col-md-4 col-lg-4 my-3 my-lg-0">
                     <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <div class="col-lg-4 text-lg-right">
+                <div class="col-sm-3 col-md-4 col-lg-4 text-lg-right">
                     <a class="mr-3" href="#!">Privacy Policy</a>
                     <a href="#!">Terms of Use</a>
                 </div>
             </div>
         </div>
     </footer>
+
+
+    <!-- Modal Iniciar Sesión -->
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-title text-center">
+                        <h4 class="text-uppercase">Iniciar Sesión</h4>
+                        <img src="assets/img/imagenes/iniciar2.png" alt="">
+                    </div>
+                    <div class="d-flex flex-column text-center">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Tu correo ...">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password"
+                                    placeholder="Tu contraseña ...">
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block btn-round">Ingresar</button>
+                        </form>
+
+                        
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <div class="signup-section">¿No eres miembro todavía? <a id="iniciar" data-toggle="modal"
+                        data-target="#registerModal" class="text-info">Regístrate</a>.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-4">
+                    <h4 class="text-uppercase text-center mb-4">Registrarse</h4>
+                    
+                    <div class="row align-items-center">
+                        
+                        <div class="co-sm-12 co-md-12">
+                            <div class="form-title text-center">
+                                
+                                <img src="assets/img/imagenes/iniciar2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="co-sm-6 co-md-12">
+                            <div class="d-flex flex-column text-center">
+                                <form>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Tu nombre ...">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Tu email ...">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Tu contraseña ...">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Confirmar Contraseña ...">
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-block btn-round">Confirmar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <div class="signup-section">¿No eres miembro todavía? <a id="registrar" data-toggle="modal"
+                            data-target="#registerModal" class="text-info">Iniciar</a>.</div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
 
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -288,6 +386,7 @@
     <!-- Contact form JS-->
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 
 </html>
