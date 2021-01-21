@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $('#loginModal').click(function(){
         $('#loginModal').modal('show');
         
@@ -19,5 +20,11 @@ $(document).ready(function () {
         $('#registerModal').modal('show');
         
     })
+
+   
+        $('.carousel').carousel({
+          interval: 2000
+        });
+      
     
 });
