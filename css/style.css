@@ -223,4 +223,45 @@ HTML CSSResult Skip Results Iframe body {
 #button-link a {
   color: #f2f2f2;
 }
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
 
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+
+  
+}
+.card-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: .5rem;
+}
