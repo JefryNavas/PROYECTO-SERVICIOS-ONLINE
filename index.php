@@ -485,12 +485,7 @@
                                 $correo = $_POST["email"];
                                 $contra = $_POST["password1"];
 
-
-
-
-
-
-                                $insertarDatos = "INSERT INTO usuario VALUES (NULL,'$servicio','$lugar','$nombre','$edad'
+                                $insertarDatos = "INSERT INTO usuario VALUES (NULL,'2','$servicio','$lugar','$nombre','$edad'
                                 ,'$correo','$contra',NULL, NULL, NULL, NULL, NULL, NULL)";
                                 include 'conexion.php';
                                 $ejecutarInsertar = mysqli_query($conexion,$insertarDatos);
