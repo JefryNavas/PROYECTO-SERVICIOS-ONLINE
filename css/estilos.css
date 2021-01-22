@@ -10454,3 +10454,13 @@ section#contact form#contactForm :-ms-input-placeholder {
   padding: 0.3rem 0rem;
 }
 
+form .error {
+
+	color: #ff0000;
+	font-family: Arial, Helvetica, sans-serif
+}
+.formulario1 .message {
+	margin: 15px 0 0;
+	color: #b3b3b3;
+	font-size: 12px;
+}

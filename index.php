@@ -125,7 +125,7 @@
                 </div>
                 <div class="col-md-12">
                     <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger mt-4" style="color: black;"
-                        href="">Contratar Servicio</a>
+                        href="usuarios.html">Contratar Servicio</a>
 
                 </div>
             </div>
@@ -352,7 +352,7 @@
                 &body=<?php echo $persona["datos"]["msg"]; ?>
                 "><i class="fas fa-envelope-open-text"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="https://api.whatsapp.com/send?phone=
-                    <?php echo $persona["datos"]["fono"]; ?>&text=<?php echo $persona["datos"]["msg"]; ?>"><i class="fab fa-whatsapp"></i></a>
+                    <?php echo $persona["datos"]["fono"]; ?>&text=<?php echo $persona["datos"]["msg"]; ?>" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
                 <div class="col-sm-3 col-md-4 col-lg-4 text-lg-right">
                     <a class="mr-3" href="#!">Políticas de Privacidad</a>
@@ -379,16 +379,15 @@
                         <img src="assets/img/imagenes/iniciar2.png" alt="">
                     </div>
                     <div class="d-flex flex-column text-center">
-                        <form>
+                        <form name="formularioiniciar">
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Tu correo ...">
+                                <input type="email" name="email" class="form-control" placeholder="Tu correo ...">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password"
+                                <input type="password" name="password1" class="form-control"
                                     placeholder="Tu contraseña ...">
                             </div>
-                            <button type="button" class="btn btn-primary btn-block btn-round"
-                                onclick="location.href='dashboard.html'">Ingresar</button>
+                            <input type="submit" class="btn btn-primary btn-block btn-round" name='ingresar' value ='Iniciar Sesión'>
                         </form>
 
 
@@ -423,19 +422,19 @@
                         </div>
                         <div class="co-sm-6 co-md-12">
                             <div class="d-flex flex-column text-center">
-                                <form id='formulario' name='formulario' method='POST'>
-                                <div class="form-group">
+                                <form id='formulario' class="formulario1" name='formularioregistrar' method='POST'>
+                                    <div class="form-group">
                                         <?php
                                         include 'conexion.php';
                                         $consulta = 'SELECT * FROM servicios';
                                         $ejecutar = mysqli_query($conexion,$consulta);
                                         ?>
-                                        <select name="servicio" class="form-control">
-                                            <option value="ndf" >Qué servicio ofrece:</option>
+                                        <select name="servicio" class="form-control" >
+                                            <option value="" >Qué servicio ofrece:</option>
                                             <?php foreach ($ejecutar as $opciones):?>
                                                 <option value="<?php echo $opciones['ID_SERVICIOS']?>"><?php echo $opciones['NOMBRE_SERVICIO'] ?></option>
                                             <?php endforeach?>
-                                          </select>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <?php
@@ -444,28 +443,28 @@
                                         $ejecutar = mysqli_query($conexion,$consulta);
                                         ?>
                                         <select name="lugar" class="form-control">
-                                            <option value="ndf" >En qué ciudad trabaja:</option>
+                                            <option value="" >En qué ciudad trabaja:</option>
                                             <?php foreach ($ejecutar as $opciones):?>
                                                 <option value="<?php echo $opciones['ID_LUGAR']?>"><?php echo $opciones['nombre_lugar'] ?></option>
                                             <?php endforeach?>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name='nombre' class="form-control" placeholder="Tu nombre ...">
+                                        <input type="text" name='nombre' class="form-control" placeholder="Tu nombre ..." required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" name='edad' class="form-control" placeholder="Tu edad ...">
+                                        <input type="number" name='edad' class="form-control" placeholder="Tu edad ..." required>
                                     </div>
                        
                                     <div class="form-group">
-                                        <input type="email" name='correo' class="form-control" placeholder="Tu email ...">
+                                        <input type="email" name='email' class="form-control" placeholder="Tu email ..." required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name='contra' class="form-control" placeholder="Tu contraseña ...">
+                                        <input type="password" id="id_pwd" name="password1" class="form-control" placeholder="Tu contraseña ..." required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control"
-                                            placeholder="Confirmar Contraseña ...">
+                                        <input type="password" class="form-control" name="password2"
+                                            placeholder="Confirmar Contraseña ..." required>
                                     </div>
                                     <!-- <h7>Tus Redes Sociales (opcional) </h7>
                                     <div class="form-group">
@@ -483,8 +482,13 @@
                                 $lugar = $_POST["lugar"];
                                 $nombre = $_POST["nombre"];
                                 $edad = $_POST["edad"];
-                                $correo = $_POST["correo"];
-                                $contra = $_POST["contra"];
+                                $correo = $_POST["email"];
+                                $contra = $_POST["password1"];
+
+
+
+
+
 
                                 $insertarDatos = "INSERT INTO usuario VALUES (NULL,'$servicio','$lugar','$nombre','$edad'
                                 ,'$correo','$contra',NULL, NULL, NULL, NULL, NULL, NULL)";
@@ -521,6 +525,8 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script src="js/modal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="js/validacion.js"></script>
 
 </body>
 
