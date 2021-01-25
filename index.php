@@ -27,7 +27,7 @@ if(!empty($_SESSION['active'])){
         header("location: dashboard.php");
 
     }else{
-        header("location: usuarios.html");
+        header("location: usuarios.php");
     }
 
 }else{
@@ -41,8 +41,8 @@ if(!empty($_SESSION['active'])){
             $alert = "Ingrese su usuario y su clave";
         }
 
-        $buscarLogin = "SELECT * FROM usuario where CORREO= '$loginus' AND
-        PSWD= '$loginpass'";
+        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO, NOMBRE,CORREO,PSWD FROM usuario, servicios s where CORREO= '$loginus' AND
+        PSWD= '$loginpass' AND usuario.ID_SERVICIOS = s.ID_SERVICIOS";
         
         $ejecutarLogin = mysqli_query($conexion,$buscarLogin);
         $result = mysqli_num_rows($ejecutarLogin);
@@ -53,11 +53,13 @@ if(!empty($_SESSION['active'])){
             $_SESSION['active'] = true;
             $_SESSION['CORREO'] = $loginus;
             $_SESSION['ID_TIPO'] = $row['ID_TIPO']; 
+            $_SESSION['NOMBRE'] = $row['NOMBRE'];
+            $_SESSION['NOMBRE_SERVICIO'] = $row[1];
             if($_SESSION['ID_TIPO'] == 1){
                 header("location: dashboard.php");
 
             }else{
-                header("location: usuarios.html");
+                header("location: usuarios.php");
             }
             
         }else{

@@ -1,3 +1,16 @@
+<?php
+session_start();
+$persona = array(
+    'datos' => array(
+    'nombre' => 'Edwin Hernández',
+    'correo' => 'fonsihernández8@gmail.com',
+    'asunto' => 'Mas Información sobre TeContrato.com',
+    'msg' => 'Se requiere mayor información sobre el funcionamiento de su página',
+    'fono' => '5930996434838'
+    )
+);           
+?>
+
 <!doctype html>
 <html lang="es">
 
@@ -12,7 +25,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
         crossorigin="anonymous"></script>
-    <title>Hello, world!</title>
+    <title>Panel Usuario</title>
     <link rel="stylesheet" href="css/perfil.css">
 
     <link rel="stylesheet"
@@ -82,13 +95,13 @@
                                     alt="Circle Image" class="img-raised rounded-circle img-fluid">
                             </div>
                             <div class="name">
-                                <h3 class="title">Christian Louboutin</h3>
-                                <h6>Designer</h6>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/aly9899"><i class="fab fa-github"
+                                <h3 class="title"><?php echo $_SESSION['NOMBRE'] ?></h3>
+                                <h6><?php echo $_SESSION['NOMBRE_SERVICIO'] ?></h6>
+                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/aly9899"><i class="fab fa-whatsapp"
                                     target="_blank"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alyzz.vizcaino"><i class="fab fa-facebook-f"
                                     target="_blank"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/alisson-vizcaíno-a769511ba"><i class="fab fa-linkedin-in"
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/alisson-vizcaíno-a769511ba"><i class="fab fa-instagram-square"
                                     target="_blank"></i></a>
                             </div>
                         </div>
