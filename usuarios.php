@@ -55,21 +55,18 @@ $persona = array(
 
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" id="calificarusuario" href="">calificar
-                            usuario</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" id="contratarservicio"
-                            href="">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="sugerencias.html">Sugerencias</a>
+            <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarios.php">Perfil</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="datos.html">Datos Personales</a>
+                    </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
                                 class="fas fa-user fa-fw"></i></a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="">Configuraciones</a>
-                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="salir.php">Cerrar Sesión</a>
                         </div>
                     </li>

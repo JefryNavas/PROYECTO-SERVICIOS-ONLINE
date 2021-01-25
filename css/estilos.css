@@ -10464,3 +10464,9 @@ form .error {
 	color: #b3b3b3;
 	font-size: 12px;
 }
+
+@media only screen and (max-width: 600px) {
+    .foto{
+        display: none;
+    }
+  }
