@@ -10247,3 +10247,11 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+.link_edit{
+  color: #0ca4ce;
+}
+
+.link_delete{
+  color: #dc3545;
+}

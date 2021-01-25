@@ -1,3 +1,8 @@
+<?php
+include ('conexion.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -121,31 +126,31 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>Nombre</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th># de Acceso a Redes Sociales</th>
+                                            <th>Servicio</th>
+                                            <th>Ciudad</th>
+                                            <th>Edad</th>
+                                            <th>Telefono</th>
+                                            <th>Clicks a redes sociales</th>
 
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                         <tr>
-                                            <td>Name</td>
-                                            <td>Position</td>
-                                            <td>Office</td>
-                                            <td>Age</td>
-                                            <td>Start date</td>
-                                            <td>Salary</td>
+                                            <td>Nombre</td>
+                                            <td>Servicio</td>
+                                            <td>Ciudad</td>
+                                            <td>Edad</td>
+                                            <td>Teléfono</td>
+                                            <td>Clicks a redes sociales</td>
                                         </tr>
                                         <tr>
-                                            <td>Name</td>
-                                            <td>Position</td>
-                                            <td>Office</td>
-                                            <td>Age</td>
-                                            <td>Start date</td>
-                                            <td>Salary</td>
+                                        <td>Nombre</td>
+                                            <td>Servicio</td>
+                                            <td>Ciudad</td>
+                                            <td>Edad</td>
+                                            <td>Teléfono</td>
+                                            <td>Clicks a redes sociales</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -161,34 +166,44 @@
                             <div class="table-responsive table-striped">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="thead-dark">
-                                        <tr>
+                                    <tr>
                                             <th>Nombre</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th># de Acceso a Redes Sociales</th>
+                                            <th>Servicio</th>
+                                            <th>Ciudad</th>
+                                            <th>Edad</th>
+                                            <th>Telefono</th>
+                                            <th>Acciones</th>
 
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>Name</td>
-                                            <td>Position</td>
-                                            <td>Office</td>
-                                            <td>Age</td>
-                                            <td>Start date</td>
-                                            <td>Salary</td>
+                                    <?php
+                                    $query = "SELECT NOMBRE,s.NOMBRE_SERVICIO,l.nombre_lugar, EDAD,TELEFONO FROM `usuario`, servicios s, lugar l WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR and usuario.NOMBRE != 'ADMINISTRADOR DEL SISTEMA'";
+                                    $llenarUsuarios = mysqli_query($conexion,$query);
+                                    $result = mysqli_num_rows($llenarUsuarios);
+                                    if($result >0){
+                                        while($data = mysqli_fetch_array($llenarUsuarios)){
+                                            ?>    
+                                            <tr>
+                                            <td><?php echo $data[0] ?></td>
+                                            <td><?php echo $data[1] ?></td>
+                                            <td><?php echo $data[2] ?></td>
+                                            <td><?php echo $data[3] ?></td>
+                                            <td><?php echo $data[4] ?></td>
+                                            <td>
+                                            <a class="link_edit" href="">Editar</a>
+                                            |
+                                            <a  class="link_delete" href="">Eliminar</a>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Name</td>
-                                            <td>Position</td>
-                                            <td>Office</td>
-                                            <td>Age</td>
-                                            <td>Start date</td>
-                                            <td>Salary</td>
-                                        </tr>
+                                    <?php    
+
+                                        }
+                                    }
+                                    ?>
+                                   
+
                                     </tbody>
                                 </table>
                             </div>
