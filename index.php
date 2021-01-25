@@ -68,7 +68,7 @@ if(!empty($_SESSION['active'])){
             echo '<script> 
             
            
-
+                
                 setTimeout(function() {
                     $(".alert").fadeOut(1500);
                     },3000);
@@ -127,7 +127,7 @@ $persona = array(
     <header class="masthead">
         
             <div class="alert container-fluid" >
-                <p class="py-3" style="background: red"><?php echo isset($alert)? $alert: ''; ?></p>
+                <p class="py-3" style="background: #565F59;"><?php echo isset($alert)? $alert: ''; ?></p>
             </div>
 
        <div class="container">
