@@ -20,18 +20,70 @@
 
 </head>
 <?php
-    
-    $persona = array(
-        'datos' => array(
-            'nombre' => 'Edwin Hernández',
-            'correo' => 'fonsihernández8@gmail.com',
-            'asunto' => 'Mas Información sobre TeContrato.com',
-            'msg' => 'Se requiere mayor información sobre el funcionamiento de su página',
-            'fono' => '5930996434838'
-        )
-    );
+session_start();
+if(!empty($_SESSION['active'])){
 
+    if($_SESSION['ID_TIPO'] == 1){
+        header("location: dashboard.php");
+
+    }else{
+        header("location: usuarios.html");
+    }
+
+}else{
+    include ('conexion.php');
+    if(isset($_POST['ingresar'])){
+        $loginus = $_POST["emailin"];
+        $loginpass = $_POST["passwordin"];
+        if(empty($loginus)|| empty($pass)){
+            // header("Location: ../index.php");
+            // exit();
+            $alert = "Ingrese su usuario y su clave";
+        }
+
+        $buscarLogin = "SELECT * FROM usuario where CORREO= '$loginus' AND
+        PSWD= '$loginpass'";
+        
+        $ejecutarLogin = mysqli_query($conexion,$buscarLogin);
+        $result = mysqli_num_rows($ejecutarLogin);
+
+        if($result > 0){
+            $row = mysqli_fetch_array($ejecutarLogin);
+            
+            $_SESSION['active'] = true;
+            $_SESSION['CORREO'] = $loginus;
+            $_SESSION['ID_TIPO'] = $row['ID_TIPO']; 
+            if($_SESSION['ID_TIPO'] == 1){
+                header("location: dashboard.php");
+
+            }else{
+                header("location: usuarios.html");
+            }
+            
+        }else{
+            // header('location: index.php ');
+            // exit();
+            // session_destroy();
+            $alert = "El usuario o la clave son incorrectos";
+            session_destroy();
+        }
+
+        }
+
+}
+
+                       
+$persona = array(
+    'datos' => array(
+    'nombre' => 'Edwin Hernández',
+    'correo' => 'fonsihernández8@gmail.com',
+    'asunto' => 'Mas Información sobre TeContrato.com',
+    'msg' => 'Se requiere mayor información sobre el funcionamiento de su página',
+    'fono' => '5930996434838'
+    )
+);                   
 ?>
+
 
 <body id="page-top">
     <!-- Navigation-->
@@ -379,16 +431,18 @@
                         <img src="assets/img/imagenes/iniciar2.png" alt="">
                     </div>
                     <div class="d-flex flex-column text-center">
-                        <form name="formularioiniciar">
+                        <form  action = '' name='formularioingresar' method='POST'>
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Tu correo ...">
+                                <input type="email" name="emailin" class="form-control" placeholder="Tu correo ...">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password1" class="form-control"
+                                <input type="password" name="passwordin" class="form-control"
                                     placeholder="Tu contraseña ...">
                             </div>
+                            <div class= 'alert'><?php echo isset($alert)? $alert: ''; ?></div>
                             <input type="submit" class="btn btn-primary btn-block btn-round" name='ingresar' value ='Iniciar Sesión'>
                         </form>
+
 
 
                     </div>
@@ -489,6 +543,8 @@
                                 ,'$correo','$contra',NULL, NULL, NULL, NULL, NULL, NULL)";
                                 include 'conexion.php';
                                 $ejecutarInsertar = mysqli_query($conexion,$insertarDatos);
+                                // session_destroy();
+                                // header('location: index.php');
                                 if(!$ejecutarInsertar){
                                     echo "Error en la linea SQL";
                                 }
