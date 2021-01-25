@@ -2,7 +2,7 @@
     $(document).ready(function () {
         // Formularios de iniciar sesión y registrarse
         let regis = document.getElementsByName("formularioregistrar");
-        let iniciar = document.getElementsByName("formularioiniciar");
+        
         // funcion validar formulario 
         function validar(formulario) {
 
@@ -78,7 +78,7 @@
             });
         }
         // Ejecución de los dos formularios 
-        validar(iniciar);
+        
         validar(regis);
 
     });
