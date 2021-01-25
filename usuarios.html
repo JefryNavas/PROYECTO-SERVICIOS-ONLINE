@@ -10,14 +10,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/estilos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
         crossorigin="anonymous"></script>
     <title>Hello, world!</title>
+    <link rel="stylesheet" href="css/perfil.css">
+
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
-<body id="page-top">
+
+
+
+
+<body class="profile-page">
+
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top " id="mainNav">
         <div class="container">
             <a class="masthead-subheading text-uppercase" href="index.html">TECONTRATO.COM</a>
@@ -38,449 +50,171 @@
                             href="">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="sugerencias.html">Sugerencias</a>
                     </li>
-
-
-
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                class="fas fa-user fa-fw"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="">Configuraciones</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="salir.php">Cerrar Sesión</a>
+                        </div>
                     </li>
+
+
+
                 </ul>
 
             </div>
     </nav>
 
-
-
-    <div class="container-fluid bg-dark py-5 bt-4">
-        <div class="container text-white py-5">
-            <h1 class="display-3"><b>Servicios Online</b></h1>
-            <p class="lead">Components and options for laying out your Bootstrap project, including wrapping containers,
-                a powerful grid system, a flexible media object, and responsive utility classes.</p>
-        </div>
-
+    <div class="page-header header-filter bg-dark" data-parallax="true"
+        style="background-image:url('assets/img/map-image.png');">
     </div>
-
-
-
-
-
-    <div class="container-fluid">
-        <div id="contratar">
-            <div class="row">
-                <div class="col-sm-12 col-md-4 col-lg-3">
-                    <nav class="" id="sidebar">
-                        <div class="p-4 pt-5">
-                            <h5 style="color: black;">Categorías</h5>
-                            <ul class="list-unstyled components mb-5">
-                                <li>
-                                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="true"
-                                        class="dropdown-toggle">Experiencia</a>
-                                    <ul class="collapse list-unstyled" style="display: unset" id="pageSubmenu2">
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>1 año</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>2 años</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>3 años</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>+4 años</a></li>
-
-                                    </ul>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg"
+                                    alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                            </div>
+                            <div class="name">
+                                <h3 class="title">Christian Louboutin</h3>
+                                <h6>Designer</h6>
+                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/aly9899"><i class="fab fa-github"
+                                    target="_blank"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alyzz.vizcaino"><i class="fab fa-facebook-f"
+                                    target="_blank"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/alisson-vizcaíno-a769511ba"><i class="fab fa-linkedin-in"
+                                    target="_blank"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="description text-justify">
+                    <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile-tabs">
+                            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                                        <i class="material-icons">camera</i>
+                                        Studio
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false"
-                                        class="dropdown-toggle">Lugar</a>
-                                    <ul class="collapse list-unstyled" id="pageSubmenu3">
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Quito</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Guayaquil</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Cuenca</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Otros</a></li>
-                                    </ul>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#works" role="tab" data-toggle="tab">
+                                        <i class="material-icons">palette</i>
+                                        Work
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false"
-                                        class="dropdown-toggle">Clothes</a>
-                                    <ul class="collapse list-unstyled" id="pageSubmenu4">
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jeans</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> T-shirt</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jacket</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Shoes</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Sweater</a></li>
-                                    </ul>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+                                        <i class="material-icons">favorite</i>
+                                        Favorite
+                                    </a>
                                 </li>
                             </ul>
-
-
                         </div>
-                    </nav>
+                    </div>
                 </div>
-                <div class="col-sm-12 col-md-8 col-lg-9">
-                    <h1 class="display-4 text-center"><b>Contrata un servicio</b></h1>
-                    <div class="card-deck p-4 pt-5">
+
+                <div class="tab-content tab-space">
+                    <div class="tab-pane active text-center gallery" id="studio">
                         <div class="row">
-                            <div class="col-md-6 col-lg-4 col-12 mb-5">
-                                <div class="card align-items-center pt-4">
-                                    <img class="rounded-circle"
-                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                        alt="Generic placeholder image" width="140" height="140">
-        
-                                    <div class="card-body text-justify">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural
-                                            lead-in
-                                            to additional
-                                            content. This content is a little bit longer.</p>
-                                        <div class="text-center">
-                                            <a class="btn btn-primary " style="color: black;" href="">Contactar</a>
-                                            <div class="row pt-3">
-                                                <div class="col-md-6">
-                                                    Calificar:
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <form>
-        
-                                                        <p class="clasificacion">
-        
-                                                            <input id="radio1" type="radio" name="estrellas" value="5">
-                                                            <!--
-                                                                  --><label for="radio1">★</label>
-                                                            <!--
-                                                                  --><input id="radio2" type="radio" name="estrellas"
-                                                                value="4">
-                                                            <!--
-                                                                  --><label for="radio2">★</label>
-                                                            <!--
-                                                                  --><input id="radio3" type="radio" name="estrellas"
-                                                                value="3">
-                                                            <!--
-                                                                  --><label for="radio3">★</label>
-                                                            <!--
-                                                                  --><input id="radio4" type="radio" name="estrellas"
-                                                                value="2">
-                                                            <!--
-                                                                  --><label for="radio4">★</label>
-                                                            <!--
-                                                                  --><input id="radio5" type="radio" name="estrellas"
-                                                                value="1">
-                                                            <!--
-                                                                  --><label for="radio5">★</label>
-                                                        </p>
-                                                    </form>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                                </div>
-                                            </div>
-        
-                                        </div>
-        
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-        
-                                </div>
+                            <div class="col-md-3 ml-auto">
+                                <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80"
+                                    class="rounded">
+                                <img src="https://images.unsplash.com/photo-1528249227670-9ba48616014f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=66b8e7db17b83084f16fdeadfc93b95b&auto=format&fit=crop&w=357&q=80"
+                                    class="rounded">
                             </div>
-                            <div class="col-md-6 col-lg-4 col-12 mb-5">
-                                <div class="card align-items-center pt-4">
-                                    <img class="rounded-circle"
-                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                        alt="Generic placeholder image" width="140" height="140">
-        
-                                    <div class="card-body text-justify">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural
-                                            lead-in
-                                            to additional
-                                            content. This content is a little bit longer.</p>
-                                        <div class="text-center">
-                                            <a class="btn btn-primary " style="color: black;" href="">Contactar</a>
-                                            <div class="row pt-3">
-                                                <div class="col-md-6">
-                                                    Calificar:
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <form>
-        
-                                                        <p class="clasificacion">
-        
-                                                            <input id="radio1" type="radio" name="estrellas" value="5">
-                                                            <!--
-                                                                  --><label for="radio1">★</label>
-                                                            <!--
-                                                                  --><input id="radio2" type="radio" name="estrellas"
-                                                                value="4">
-                                                            <!--
-                                                                  --><label for="radio2">★</label>
-                                                            <!--
-                                                                  --><input id="radio3" type="radio" name="estrellas"
-                                                                value="3">
-                                                            <!--
-                                                                  --><label for="radio3">★</label>
-                                                            <!--
-                                                                  --><input id="radio4" type="radio" name="estrellas"
-                                                                value="2">
-                                                            <!--
-                                                                  --><label for="radio4">★</label>
-                                                            <!--
-                                                                  --><input id="radio5" type="radio" name="estrellas"
-                                                                value="1">
-                                                            <!--
-                                                                  --><label for="radio5">★</label>
-                                                        </p>
-                                                    </form>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                                </div>
-                                            </div>
-        
-                                        </div>
-        
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-        
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 col-12 mb-5">
-                                <div class="card align-items-center pt-4">
-                                    <img class="rounded-circle"
-                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                        alt="Generic placeholder image" width="140" height="140">
-        
-                                    <div class="card-body text-justify">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a natural
-                                            lead-in
-                                            to additional
-                                            content. This content is a little bit longer.</p>
-                                        <div class="text-center">
-                                            <a class="btn btn-primary " style="color: black;" href="">Contactar</a>
-                                            <div class="row pt-3">
-                                                <div class="col-md-6">
-                                                    Calificar:
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <form>
-        
-                                                        <p class="clasificacion">
-        
-                                                            <input id="radio1" type="radio" name="estrellas" value="5">
-                                                            <!--
-                                                                  --><label for="radio1">★</label>
-                                                            <!--
-                                                                  --><input id="radio2" type="radio" name="estrellas"
-                                                                value="4">
-                                                            <!--
-                                                                  --><label for="radio2">★</label>
-                                                            <!--
-                                                                  --><input id="radio3" type="radio" name="estrellas"
-                                                                value="3">
-                                                            <!--
-                                                                  --><label for="radio3">★</label>
-                                                            <!--
-                                                                  --><input id="radio4" type="radio" name="estrellas"
-                                                                value="2">
-                                                            <!--
-                                                                  --><label for="radio4">★</label>
-                                                            <!--
-                                                                  --><input id="radio5" type="radio" name="estrellas"
-                                                                value="1">
-                                                            <!--
-                                                                  --><label for="radio5">★</label>
-                                                        </p>
-                                                    </form>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                                </div>
-                                            </div>
-        
-                                        </div>
-        
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-        
-                                </div>
+                            <div class="col-md-3 mr-auto">
+                                <img src="https://images.unsplash.com/photo-1521341057461-6eb5f40b07ab?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=72da2f550f8cbd0ec252ad6fb89c96b2&auto=format&fit=crop&w=334&q=80"
+                                    class="rounded">
+                                <img src="https://images.unsplash.com/photo-1506667527953-22eca67dd919?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6326214b7ce18d74dde5e88db4a12dd5&auto=format&fit=crop&w=750&q=80"
+                                    class="rounded">
                             </div>
                         </div>
-
-
                     </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="calificar">
-                <div class="container">
-                    <h1 class="display-4 text-center"><b>Calificar usuarios</b></h1>
-                    <div class="card-deck pb-5 " style="color: white;">
+                    <div class="tab-pane text-center gallery" id="works">
                         <div class="row">
-                            <div class="col-md-6 col-lg-4 col-12 mb-5">
-                                <div class="card align-items-center pt-4  bg-dark ">
-                                    <img class="rounded-circle"
-                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                        alt="Generic placeholder image" width="140" height="140">
-
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Card title</h5>
-
-                                        <div class="row">
-                                            <div class="col-md-6 pt-3">
-                                                Calificación:
-                                            </div>
-                                            <div class="col-md-6">
-                                                <form>
-
-                                                    <p class="clasificacion">
-
-                                                        <input id="radio1" type="radio" name="estrellas" value="5">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio1">★</label>
-                                                        <!--
-                                                          --><input id="radio2" type="radio" name="estrellas"
-                                                            value="4">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio2">★</label>
-                                                        <!--
-                                                          --><input id="radio3" type="radio" name="estrellas"
-                                                            value="3">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio3">★</label>
-                                                        <!--
-                                                          --><input id="radio4" type="radio" name="estrellas"
-                                                            value="2">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio4">★</label>
-                                                        <!--
-                                                          --><input id="radio5" type="radio" name="estrellas"
-                                                            value="1">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio5">★</label>
-                                                    </p>
-                                                </form>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
+                            <div class="col-md-3 ml-auto">
+                                <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80"
+                                    class="rounded">
+                                <img src="https://images.unsplash.com/photo-1506667527953-22eca67dd919?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6326214b7ce18d74dde5e88db4a12dd5&auto=format&fit=crop&w=750&q=80"
+                                    class="rounded">
+                                <img src="https://images.unsplash.com/photo-1505784045224-1247b2b29cf3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec2bdc92a9687b6af5089b335691830e&auto=format&fit=crop&w=750&q=80"
+                                    class="rounded">
                             </div>
-                            <div class="col-md-6 col-lg-4 col-12 mb-5">
-                                <div class="card align-items-center pt-4  bg-dark ">
-                                    <img class="rounded-circle"
-                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                        alt="Generic placeholder image" width="140" height="140">
-
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Card title</h5>
-
-                                        <div class="row">
-                                            <div class="col-md-6 pt-3">
-                                                Calificación:
-                                            </div>
-                                            <div class="col-md-6">
-                                                <form>
-
-                                                    <p class="clasificacion">
-
-                                                        <input id="radio1" type="radio" name="estrellas" value="5">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio1">★</label>
-                                                        <!--
-                                                          --><input id="radio2" type="radio" name="estrellas"
-                                                            value="4">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio2">★</label>
-                                                        <!--
-                                                          --><input id="radio3" type="radio" name="estrellas"
-                                                            value="3">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio3">★</label>
-                                                        <!--
-                                                          --><input id="radio4" type="radio" name="estrellas"
-                                                            value="2">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio4">★</label>
-                                                        <!--
-                                                          --><input id="radio5" type="radio" name="estrellas"
-                                                            value="1">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio5">★</label>
-                                                    </p>
-                                                </form>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 col-12 mb-5">
-                                <div class="card align-items-center pt-4  bg-dark ">
-                                    <img class="rounded-circle"
-                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                        alt="Generic placeholder image" width="140" height="140">
-
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">Card title</h5>
-
-                                        <div class="row">
-                                            <div class="col-md-6 pt-3">
-                                                Calificación:
-                                            </div>
-                                            <div class="col-md-6">
-                                                <form>
-
-                                                    <p class="clasificacion">
-
-                                                        <input id="radio1" type="radio" name="estrellas" value="5">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio1">★</label>
-                                                        <!--
-                                                          --><input id="radio2" type="radio" name="estrellas"
-                                                            value="4">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio2">★</label>
-                                                        <!--
-                                                          --><input id="radio3" type="radio" name="estrellas"
-                                                            value="3">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio3">★</label>
-                                                        <!--
-                                                          --><input id="radio4" type="radio" name="estrellas"
-                                                            value="2">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio4">★</label>
-                                                        <!--
-                                                          --><input id="radio5" type="radio" name="estrellas"
-                                                            value="1">
-                                                        <!--
-                                                          --><label style="font-size: x-large;" for="radio5">★</label>
-                                                    </p>
-                                                </form>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
+                            <div class="col-md-3 mr-auto">
+                                <img src="https://images.unsplash.com/photo-1504346466600-714572c4b726?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6754ded479383b7e3144de310fa88277&auto=format&fit=crop&w=750&q=80"
+                                    class="rounded">
+                                <img src="https://images.unsplash.com/photo-1494028698538-2cd52a400b17?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83bf0e71786922a80c420c17b664a1f5&auto=format&fit=crop&w=334&q=80"
+                                    class="rounded">
                             </div>
                         </div>
-
-
+                    </div>
+                    <div class="tab-pane text-center gallery" id="favorite">
+                        <div class="row">
+                            <div class="col-md-3 ml-auto">
+                                <img src="https://images.unsplash.com/photo-1504346466600-714572c4b726?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6754ded479383b7e3144de310fa88277&auto=format&fit=crop&w=750&q=80"
+                                    class="rounded">
+                                <img src="https://images.unsplash.com/photo-1494028698538-2cd52a400b17?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83bf0e71786922a80c420c17b664a1f5&auto=format&fit=crop&w=334&q=80"
+                                    class="rounded">
+                            </div>
+                            <div class="col-md-3 mr-auto">
+                                <img src="https://images.unsplash.com/photo-1505784045224-1247b2b29cf3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec2bdc92a9687b6af5089b335691830e&auto=format&fit=crop&w=750&q=80"
+                                    class="rounded">
+                                <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80"
+                                    class="rounded">
+                                <img src="https://images.unsplash.com/photo-1506667527953-22eca67dd919?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6326214b7ce18d74dde5e88db4a12dd5&auto=format&fit=crop&w=750&q=80"
+                                    class="rounded">
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
 
 
             </div>
+        </div>
+    </div>
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-3 col-md-4 col-lg-4 text-lg-left">Copyright © TeContrato.com 2021</div>
+                <div class="col-sm-6 col-md-4 col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="mailto:
+                <?php echo $persona["datos"]["correo"]; ?>
+                ?subject=<?php echo $persona["datos"]["asunto"]; ?>
+                &body=<?php echo $persona["datos"]["msg"]; ?>
+                "><i class="fas fa-envelope-open-text"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://api.whatsapp.com/send?phone=
+                    <?php echo $persona["datos"]["fono"]; ?>&text=<?php echo $persona["datos"]["msg"]; ?>" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="col-sm-3 col-md-4 col-lg-4 text-lg-right">
+                    <a class="mr-3" href="#!">Políticas de Privacidad</a>
+                    <a href="#!">Términos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+</body>
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                 crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -492,8 +226,4 @@
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                 crossorigin="anonymous"></script>
             <script src="js/scripts.js"></script>
-            <script src="js/contenidos.js"></script>
-
-</body>
-
 </html>
