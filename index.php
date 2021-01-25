@@ -35,7 +35,7 @@ if(!empty($_SESSION['active'])){
     if(isset($_POST['ingresar'])){
         $loginus = $_POST["emailin"];
         $loginpass = $_POST["passwordin"];
-        if(empty($loginus)|| empty($pass)){
+        if(empty($loginus)|| empty($pass) || trim($loginus) == "" || trim($loginpass) == ""){
             // header("Location: ../index.php");
             // exit();
             $alert = "Ingrese su usuario y su clave";
@@ -65,6 +65,15 @@ if(!empty($_SESSION['active'])){
             // exit();
             // session_destroy();
             $alert = "El usuario o la clave son incorrectos";
+            echo '<script> 
+            
+           
+
+                setTimeout(function() {
+                    $(".alert").fadeOut(1500);
+                    },3000);
+
+                 </script>';
             session_destroy();
         }
 
@@ -116,8 +125,12 @@ $persona = array(
     <!-- Masthead-->
 
     <header class="masthead">
+        
+            <div class="alert container-fluid" >
+                <p class="py-3" style="background: red"><?php echo isset($alert)? $alert: ''; ?></p>
+            </div>
 
-        <div class="container">
+       <div class="container">
             <div class="row align-items-end">
                 <div class="col-sm-12 col-md-12 col-lg-7">
                     <div class="masthead-subheading">Bienvenid@ a:</div>
@@ -439,8 +452,8 @@ $persona = array(
                                 <input type="password" name="passwordin" class="form-control"
                                     placeholder="Tu contraseña ...">
                             </div>
-                            <div class= 'alert'><?php echo isset($alert)? $alert: ''; ?></div>
-                            <input type="submit" class="btn btn-primary btn-block btn-round" name='ingresar' value ='Iniciar Sesión'>
+                            
+                            <input type="submit" class="btn btn-primary btn-block btn-round" name='ingresar' id="ingresar" value ='Iniciar Sesión'>
                         </form>
 
 
