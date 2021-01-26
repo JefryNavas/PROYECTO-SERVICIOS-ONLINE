@@ -18,16 +18,13 @@ session_start();
 </head>
 
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-info">
+    <nav class="sb-topnav navbar navbar-expand bg-info">
         <a class="navbar-brand text-uppercase" href=""><img src="assets/img/imagenes/logo.png" alt="LOGO" style="width: 90%"></a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
+        <button class="btn btn-link btn-sm order-1 order-lg-0 bg-white" id="sidebarToggle" href="#"><i
                 class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
-        <form class=" d-md-inline-block ml-auto mr-0 mr-md-3 my-2 my-md-0">
-
-        </form>
         <!-- Navbar-->
-        <ul class="navbar-nav ml-auto ml-md-0">
+        <ul class="navbar-nav ml-auto bg-white mr-3">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
@@ -41,7 +38,7 @@ session_start();
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-white" id="sidenavAccordion">
+            <nav class="sb-sidenav bg-white" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Interfaz</div>
@@ -77,7 +74,7 @@ session_start();
                         <li class="breadcrumb-item active text-uppercase">Numeros totales de cada indicador</li>
                     </ol>
                     <div class="row">
-                        <div class="col-xl-3 col-md-6">
+                        <div class="col-sm-6 col-md-3">
                             <div class="card bg-primary text-white mb-4">
                                 <div class="card-body text-uppercase text-center">usuarios Registrados</div>
                                 <div class="card-footer text-center">
@@ -89,7 +86,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
+                        <div class="col-sm-6 col-md-3">
                             <div class="card bg-warning text-white mb-4">
                                 <div class="card-body text-uppercase text-center">Mensajería interna</div>
                                 <div class="card-footer text-center">
@@ -97,7 +94,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
+                        <div class="col-sm-6 col-md-3">
                             <div class="card bg-success text-white mb-4">
                                 <div class="card-body text-uppercase text-center">visitas a las paginas</div>
                                 <div class="card-footer text-center">
@@ -105,7 +102,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
+                        <div class="col-sm-6 col-md-3">
                             <div class="card bg-danger text-white mb-4">
                                 <div class="card-body text-uppercase text-center">Acceso a redes sociales</div>
                                 <div class="card-footer text-center">
