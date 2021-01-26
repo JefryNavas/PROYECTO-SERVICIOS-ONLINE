@@ -10466,6 +10466,10 @@ form .error {
 }
 
 @media only screen and (max-width: 600px) {
+
+    .logo1{
+      width: 100%;
+    }
     .foto{
         display: none;
     }
