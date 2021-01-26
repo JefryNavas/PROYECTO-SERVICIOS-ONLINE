@@ -56,10 +56,9 @@ $persona = array(
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarios.php">Perfil</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="datos.html">Datos Personales</a>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="datos.php">EDITAR Datos Personales</a>
                     </li>
                     
                     <li class="nav-item dropdown">

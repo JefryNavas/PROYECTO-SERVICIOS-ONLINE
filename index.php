@@ -42,7 +42,7 @@ if(!empty($_SESSION['active'])){
         }
 
         $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO, NOMBRE,CORREO,PSWD FROM usuario, servicios s where CORREO= '$loginus' AND
-        PSWD= '$loginpass' AND usuario.ID_SERVICIOS = s.ID_SERVICIOS";
+        PSWD= '$loginpass' AND usuario.ID_SERVICIOS = s.ID_SERVICIOS AND ESTATUS = 1";
         
         $ejecutarLogin = mysqli_query($conexion,$buscarLogin);
         $result = mysqli_num_rows($ejecutarLogin);
@@ -560,7 +560,7 @@ $persona = array(
                                 $contra = $_POST["password1"];
 
                                 $insertarDatos = "INSERT INTO usuario VALUES (NULL,'2','$servicio','$lugar','$nombre','$edad'
-                                ,'$correo','$contra',NULL, NULL, NULL, NULL, NULL, NULL)";
+                                ,'$correo','$contra',NULL, NULL, NULL, NULL, NULL, NULL,NULL,'1')";
                                 include 'conexion.php';
                                 $ejecutarInsertar = mysqli_query($conexion,$insertarDatos);
                                 // session_destroy();

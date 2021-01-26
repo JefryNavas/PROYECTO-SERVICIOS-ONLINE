@@ -118,7 +118,7 @@ session_start();
 
                     <div class="card mb-4">
                         <div class="card-header">
-                            <i class="fas fa-table mr-1"></i>
+                            <i class="fas fa-user-plus"></i>
                             USUARIOS MÁS VISITADOS
                         </div>
                         <div class="card-body">
@@ -160,7 +160,7 @@ session_start();
                     </div>
                     <div class="card mb-4">
                         <div class="card-header">
-                            <i class="fas fa-table mr-1"></i>
+                            <i class="fas fa-users"></i>
                             USUARIOS REGISTRADOS 
                         </div>
                         <div class="card-body">
@@ -180,7 +180,8 @@ session_start();
 
                                     <tbody>
                                     <?php
-                                    $query = "SELECT NOMBRE,s.NOMBRE_SERVICIO,l.nombre_lugar, EDAD,TELEFONO, ID_PERSONA FROM `usuario`, servicios s, lugar l WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR and usuario.NOMBRE != 'ADMINISTRADOR DEL SISTEMA'";
+                                    $query = "SELECT NOMBRE,s.NOMBRE_SERVICIO,l.nombre_lugar, EDAD,TELEFONO, ID_PERSONA FROM `usuario`, servicios s, lugar l WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR
+                                     and usuario.NOMBRE != 'ADMINISTRADOR DEL SISTEMA'and ESTATUS = 1";
                                     $llenarUsuarios = mysqli_query($conexion,$query);
                                     $result = mysqli_num_rows($llenarUsuarios);
                                     if($result >0){
@@ -193,9 +194,7 @@ session_start();
                                             <td><?php echo $data[3] ?></td>
                                             <td><?php echo $data[4] ?></td>
                                             <td>
-                                            <a class="link_edit" href="">Editar</a>
-                                            |
-                                            <a  class="link_delete" href="confirmacion.php?id=<?php echo $data[5];?>">Eliminar</a>
+                                            <a  class="link_delete" href="confirmacion.php?id=<?php echo $data[5];?>">Dar de Baja</a>
                                             </td>
                                         </tr>
                                     <?php    

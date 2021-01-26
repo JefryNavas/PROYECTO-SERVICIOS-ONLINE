@@ -102,7 +102,8 @@
                                 <?php
                                 if(!empty($_POST)){
                                     $idusuario = $_POST['idusuario'];
-                                    $query_delete = "DELETE FROM usuario WHERE ID_PERSONA = $idusuario";
+                                    // $query_delete = "DELETE FROM usuario WHERE ID_PERSONA = $idusuario";
+                                    $query_delete = "UPDATE usuario SET ESTATUS = 0 WHERE ID_PERSONA = $idusuario";
                                     $borrar_usuario = mysqli_query($conexion,$query_delete);
                                     if($borrar_usuario){
                                         header('location: dashboard.php');

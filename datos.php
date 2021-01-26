@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="es">
 
@@ -37,10 +40,9 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarios.php">Perfil</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="datos.html">Datos Personales</a>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="datos.php">Editar Datos Personales</a>
                     </li>
                     
                     <li class="nav-item dropdown">
@@ -70,7 +72,7 @@
     <div class="container pt-4">
         <div class="row">
             <div class="col-sm-9 col-md-10 col-lg-10">
-                <h1>Nombre de Usuario</h1>
+                <h1><?php echo $_SESSION['NOMBRE'] ?></h1>
             </div>
             <div class="col-sm-3 col-md-2 col-lg-2"><img  width="100%" class="foto"
                         src="assets/img/imagenes/avatar.png">
