@@ -114,7 +114,9 @@ $persona = array(
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Equipo</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contactos</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Califica</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="sugerencias.html">Sugerencias</a></li> -->
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contactanos</a></li>
                     <a class="btn btn-primary mr-3" style="width: fit-content;" data-toggle="modal"
                         data-target="#loginModal">Iniciar Sesión</a>
                     <a class="btn btn-primary" style="width: fit-content;" data-toggle="modal"
@@ -192,7 +194,7 @@ $persona = array(
                 </div>
                 <div class="col-md-12">
                     <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger mt-4" style="color: black;"
-                        href="usuarios.html">Contratar Servicio</a>
+                        href="clientes.html">Contratar Servicio</a>
 
                 </div>
             </div>
@@ -403,6 +405,9 @@ $persona = array(
                         Mensaje</button>
                 </div>
             </form>
+            <br>
+
+            <h4 style = 'color: white'>Si tienes quejas o sugerencias sobre nuestros servicios da click <a href="sugerencias.html">Aquí</a> </h4>
         </div>
     </section>
 
