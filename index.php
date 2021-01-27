@@ -127,7 +127,6 @@ $persona = array(
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#page-top">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Equipo</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Califica</a></li>
                     <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="sugerencias.html">Sugerencias</a></li> -->
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contactanos</a></li>
                     <a class="btn btn-primary mr-3" style="width: fit-content;" data-toggle="modal"
