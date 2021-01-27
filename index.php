@@ -41,8 +41,8 @@ if(!empty($_SESSION['active'])){
             $alert = "Ingrese su usuario y su clave";
         }
 
-        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO, NOMBRE,CORREO,PSWD FROM usuario, servicios s where CORREO= '$loginus' AND
-        PSWD= '$loginpass' AND usuario.ID_SERVICIOS = s.ID_SERVICIOS AND ESTATUS = 1";
+        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,PSWD,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA FROM usuario, servicios s,lugar l where CORREO= '$loginus' AND
+        PSWD= '$loginpass' AND usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR  AND ESTATUS = 1";
         
         $ejecutarLogin = mysqli_query($conexion,$buscarLogin);
         $result = mysqli_num_rows($ejecutarLogin);
@@ -54,7 +54,20 @@ if(!empty($_SESSION['active'])){
             $_SESSION['CORREO'] = $loginus;
             $_SESSION['ID_TIPO'] = $row['ID_TIPO']; 
             $_SESSION['NOMBRE'] = $row['NOMBRE'];
+            $_SESSION['PSWD'] = $row['PSWD'];
+            $_SESSION['ID_SERVICIO'] = $row[0];
             $_SESSION['NOMBRE_SERVICIO'] = $row[1];
+            $_SESSION['EDAD'] = $row['EDAD'];
+            $_SESSION['TELEFONO'] = $row['TELEFONO'];
+            $_SESSION['CELULAR'] = $row['CELULAR'];
+            $_SESSION['AN_EXPERIENCIA'] = $row['AN_EXPERIENCIA'];
+            $_SESSION['FOTO'] = $row['FOTO'];
+            $_SESSION['FACEBOOK'] = $row['FACEBOOK'];
+            $_SESSION['INSTAGRAM'] = $row['INSTAGRAM'];
+            $_SESSION['ID_PERSONA'] = $row['ID_PERSONA'];
+            $_SESSION['ID_LUGAR'] = $row['ID_LUGAR'];
+            $_SESSION['NOMBRE_LUGAR'] = $row['nombre_lugar'];
+
             if($_SESSION['ID_TIPO'] == 1){
                 header("location: dashboard.php");
 
