@@ -148,24 +148,31 @@ include ('conexion.php');
                                 
                                 while($data = mysqli_fetch_array($llenarPaneles)){
                                     ?>
-                                                                <div class="col-md-6 col-lg-4 col-12 mb-5">
+                                <div class="col-md-6 col-lg-4 col-12 mb-5">
                                 <div class="card align-items-center pt-4">
                                     <img class="rounded-circle"
-                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                    <?php
+                                    if ($data['FOTO'] == null) {
+                                    $link = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==";
+                                     } else {
+                                        $link = $data['FOTO'];
+                                     }
+                                    ?>
+                                        src="<?php echo $link ?>"
                                         alt="Generic placeholder image" width="140" height="140">
 
                                     <div class="card-body text-justify">
-                                        <h5 class="card-title">Card title</h5>
+                                        <h5 class="card-title"><?php echo $data['NOMBRE'] ?></h5>
                                         <p class="card-text">This is a longer card with supporting text below as a
                                             natural
                                             lead-in
                                             to additional
                                             content. This content is a little bit longer.</p>
                                         <div class="text-center">
-                                            <a class="btn btn-primary " style="color: black;" href="">Contactar</a>
+                                            <a class="btn btn-primary " style="color: black;" href="perfil.php?id=<?php echo $data['ID_PERSONA'];?>">Ir a Perfil</a>
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
-                                                    Calificar:
+                                                    Calificación:
                                                 </div>
                                                 <div class="col-md-6">
                                                     <form>
@@ -198,9 +205,6 @@ include ('conexion.php');
                                                         </p>
                                                     </form>
                                                 </div>
-                                                <div class="col-md-12">
-                                                    <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                                </div>
                                             </div>
 
                                         </div>
@@ -230,14 +234,29 @@ include ('conexion.php');
                 <h1 class="display-4 text-center"><b>Calificar usuarios</b></h1>
                 <div class="card-deck pb-5 " style="color: white;">
                     <div class="row">
-                        <div class="col-md-6 col-lg-4 col-12 mb-5">
+                            <?php
+                            $query2 = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA FROM usuario, servicios s,lugar l 
+                             WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR  AND ESTATUS = 1 AND usuario.NOMBRE != 'ADMINISTRADOR DEL SISTEMA'";
+                            $llenarPaneles2 = mysqli_query($conexion,$query2);
+                            $result2 = mysqli_num_rows($llenarPaneles2);
+                             if($result2 >0){
+                                while($data2 = mysqli_fetch_array($llenarPaneles2)){
+                                    ?>
+                                                          <div class="col-md-6 col-lg-4 col-12 mb-5">
                             <div class="card align-items-center pt-4  bg-dark ">
                                 <img class="rounded-circle"
-                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                <?php
+                                    if ($data2['FOTO'] == null) {
+                                    $link2 = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==";
+                                     } else {
+                                        $link2 = $data2['FOTO'];
+                                     }
+                                    ?>
+                                    src="<?php echo $link2 ?>"
                                     alt="Generic placeholder image" width="140" height="140">
 
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Card title</h5>
+                                    <h5 class="card-title"><?php echo $data2['NOMBRE'] ?></h5>
 
                                     <div class="row">
                                         <div class="col-md-6 pt-3">
@@ -283,121 +302,18 @@ include ('conexion.php');
 
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4 col-12 mb-5">
-                            <div class="card align-items-center pt-4  bg-dark ">
-                                <img class="rounded-circle"
-                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                    alt="Generic placeholder image" width="140" height="140">
+                            <?php
+                                }
 
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Card title</h5>
-
-                                    <div class="row">
-                                        <div class="col-md-6 pt-3">
-                                            Calificación:
-                                        </div>
-                                        <div class="col-md-6">
-                                            <form>
-
-                                                <p class="clasificacion">
-
-                                                    <input id="radio1" type="radio" name="estrellas" value="5">
-                                                    <!--
-                                                          --><label style="font-size: x-large;" for="radio1">★</label>
-                                                    <!--
-                                                          --><input id="radio2" type="radio" name="estrellas"
-                                                        value="4">
-                                                    <!--
-                                                          --><label style="font-size: x-large;" for="radio2">★</label>
-                                                    <!--
-                                                          --><input id="radio3" type="radio" name="estrellas"
-                                                        value="3">
-                                                    <!--
-                                                          --><label style="font-size: x-large;" for="radio3">★</label>
-                                                    <!--
-                                                          --><input id="radio4" type="radio" name="estrellas"
-                                                        value="2">
-                                                    <!--
-                                                          --><label style="font-size: x-large;" for="radio4">★</label>
-                                                    <!--
-                                                          --><input id="radio5" type="radio" name="estrellas"
-                                                        value="1">
-                                                    <!--
-                                                          --><label style="font-size: x-large;" for="radio5">★</label>
-                                                </p>
-                                            </form>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 col-12 mb-5">
-                            <div class="card align-items-center pt-4  bg-dark ">
-                                <img class="rounded-circle"
-                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                    alt="Generic placeholder image" width="140" height="140">
-
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Card title</h5>
-
-                                    <div class="row">
-                                        <div class="col-md-6 pt-3">
-                                            Calificación:
-                                        </div>
-                                        <div class="col-md-6">
-                                            <form>
-
-                                                <p class="clasificacion">
-
-                                                    <input id="radio1" type="radio" name="estrellas" value="5">
-                                                    <!--
-                                                          --><label style="font-size: x-large;" for="radio1">★</label>
-                                                    <!--
-                                                          --><input id="radio2" type="radio" name="estrellas"
-                                                        value="4">
-                                                    <!--
-                                                          --><label style="font-size: x-large;" for="radio2">★</label>
-                                                    <!--
-                                                          --><input id="radio3" type="radio" name="estrellas"
-                                                        value="3">
-                                                    <!--
-                                                          --><label style="font-size: x-large;" for="radio3">★</label>
-                                                    <!--
-                                                          --><input id="radio4" type="radio" name="estrellas"
-                                                        value="2">
-                                                    <!--
-                                                          --><label style="font-size: x-large;" for="radio4">★</label>
-                                                    <!--
-                                                          --><input id="radio5" type="radio" name="estrellas"
-                                                        value="1">
-                                                    <!--
-                                                          --><label style="font-size: x-large;" for="radio5">★</label>
-                                                </p>
-                                            </form>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
+                             }
+                                
+                                
+                            ?>
                     </div>
 
-
+                                                
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
     <!-- Footer-->
