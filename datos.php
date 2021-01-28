@@ -88,24 +88,37 @@ session_start();
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-3">
                 <div class="text-center">
-                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="mx-auto rounded-circle"
-                        alt="avatar">
-                    <input type="file" class="text-center center-block" value="subir">
+
+                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                            <?php
+                                if ($_SESSION['FOTO'] == null) {
+                                    $link = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
+                                } else {
+                                    $link = $_SESSION['FOTO'];
+                                }
+                            ?>
+                        <img src="<?php echo $link ?>"
+                            class="avatar mx-auto rounded-circle" width="90%" alt="avatar">
+                        <input type="file" class="text-center center-block file-upload" name="fileToUpload" id="fileToUpload">
+                        <input type="submit" value="Cargar Imagen" name="cargar_imagen">
+                    </form>
+
                 </div>
 
                 </hr><br>
                 <div class="card">
                     <div class="card-header">Redes Sociales</div>
                     <div class="card-body">
-                        <form class="form" action="##" method="post" id="registrationForm2">
+                        <form class="form1" method="POST">
                             <div class="row ">
                                 <div class="col-sm-12">
                                     <div class="form-group">
 
                                         <div class="col-xs-6">
 
-                                            <input type="email" class="form-control" name="" id=""
-                                                placeholder="tu facebook..."  value="<?php echo $_SESSION['FACEBOOK'] ?>">
+                                            <input type="text" class="form-control" name="facebook_"
+                                                placeholder="tu facebook..."
+                                                value="<?php echo $_SESSION['FACEBOOK'] ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -114,18 +127,23 @@ session_start();
 
                                         <div class="col-xs-6">
 
-                                            <input type="password" class="form-control" name="" id=""
-                                                placeholder="tu instagram..."  value="<?php echo $_SESSION['INSTAGRAM'] ?>">
+                                            <input type="text" class="form-control" name="instagram_"
+                                                placeholder="tu instagram..."
+                                                value="<?php echo $_SESSION['INSTAGRAM'] ?>">
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="col-sm-12">
-
-                                    <button class="btn btn-md btn-success" type="submit"><i
-                                            class="fa fa-check-square"></i> Guardar</button>
-
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <button type="submit" class="btn btn-md btn-success" name="redes_sociales"><i
+                                                class="fa fa-check-square"></i>
+                                            Guardar</button>
+                                        <button class="btn btn-md" type="reset"><i class="fas fa-redo"></i>
+                                            Restablecer</button>
+                                    </div>
                                 </div>
 
 
@@ -147,7 +165,7 @@ session_start();
 
                 <div class="tab-pane active" id="home">
                     <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
+                    <form class="form1" method="POST">
                         <div class="row ">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -156,8 +174,8 @@ session_start();
                                         <label for="first_name">
                                             <h4>Nombre</h4>
                                         </label>
-                                        <input type="text" class="form-control" name="name" id="name"
-                                            placeholder="tu nombre..." value=" <?php echo $_SESSION['NOMBRE'] ?>">
+                                        <input type="text" class="form-control" name="nombre" id="nombre"
+                                            placeholder="tu nombre..." value="<?php echo $_SESSION['NOMBRE'] ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -180,9 +198,11 @@ session_start();
                                         $ejecutar = mysqli_query($conexion,$consulta);
                                         ?>
                                     <select name="lugar" class="form-control">
-                                    <option value="<?php echo $_SESSION['ID_LUGAR']?>" ><?php echo $_SESSION['NOMBRE_LUGAR'] ?></option>
-                                       
-                                       <?php foreach ($ejecutar as $opciones):?>
+                                        <option value="<?php echo $_SESSION['ID_LUGAR']?>">
+                                            <?php echo $_SESSION['NOMBRE_LUGAR'] ?>
+                                        </option>
+
+                                        <?php foreach ($ejecutar as $opciones):?>
                                         <option value="<?php echo $opciones['ID_LUGAR']?>">
                                             <?php echo $opciones['nombre_lugar'] ?>
                                         </option>
@@ -200,7 +220,8 @@ session_start();
                                             <h4>Teléfono</h4>
                                         </label>
                                         <input type="text" class="form-control" name="phone" id="phone"
-                                            placeholder="tu telefono..." value="<?php echo $_SESSION['TELEFONO'] ?>">
+                                            placeholder="tu telefono..." value="<?php echo $_SESSION['TELEFONO'] 
+                                            ?>">
                                     </div>
                                 </div>
 
@@ -210,7 +231,8 @@ session_start();
                                             <h4>Celular</h4>
                                         </label>
                                         <input type="text" class="form-control" name="mobile" id="mobile"
-                                            placeholder="tu número cecular..."  value="<?php echo $_SESSION['CELULAR'] ?>">
+                                            placeholder="tu número cecular..." value="<?php echo $_SESSION['CELULAR'] 
+                                            ?>">
                                     </div>
                                 </div>
 
@@ -221,7 +243,8 @@ session_start();
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <br>
-                                <button class="btn btn-md btn-success" type="submit"><i class="fa fa-check-square"></i>
+                                <button type="submit" class="btn btn-md btn-success" name="personales"><i
+                                        class="fa fa-check-square"></i>
                                     Guardar</button>
                                 <button class="btn btn-md" type="reset"><i class="fas fa-redo"></i>
                                     Restablecer</button>
@@ -232,12 +255,13 @@ session_start();
                     <hr>
 
 
+
                 </div>
                 <div class="tab-pane active">
                     <p class="display-4">Servicios</p>
                     <hr>
 
-                    <form class="form" action="##" method="post" id="registrationForm2">
+                    <form class="form1" method="POST">
                         <div class="row ">
                             <div class="col-sm-6">
                                 <label for="">
@@ -250,9 +274,11 @@ session_start();
                                         $ejecutar = mysqli_query($conexion,$consulta);
                                         ?>
                                     <select name="servicio" class="form-control">
-                                        
-                                        <option value="<?php echo $_SESSION['ID_SERVICIO']?>" ><?php echo $_SESSION['NOMBRE_SERVICIO'] ?></option>
-                                        
+
+                                        <option value="<?php echo $_SESSION['ID_SERVICIO']?>">
+                                            <?php echo $_SESSION['NOMBRE_SERVICIO'] ?>
+                                        </option>
+
                                         <?php foreach ($ejecutar as $opciones):?>
                                         <option value="<?php echo $opciones['ID_SERVICIOS']?>">
                                             <?php echo $opciones['NOMBRE_SERVICIO'] ?>
@@ -268,8 +294,9 @@ session_start();
                                         <label for="">
                                             <h4>Años de Experiencia</h4>
                                         </label>
-                                        <input type="password" class="form-control" name=""
-                                            placeholder="tus años de experiencia..." value="<?php echo $_SESSION['AN_EXPERIENCIA'] ?>">
+                                        <input type="text" class="form-control" name="expe"
+                                            placeholder="tus años de experiencia..."
+                                            value="<?php echo $_SESSION['AN_EXPERIENCIA'] ?>">
                                     </div>
                                 </div>
                             </div>
@@ -277,7 +304,7 @@ session_start();
                                 <div class="form-group">
                                     <div class="col-xs-12">
                                         <br>
-                                        <button class="btn btn-md btn-success" type="submit"><i
+                                        <button type="submit" class="btn btn-md btn-success" name="datos_servicios"><i
                                                 class="fa fa-check-square"></i> Guardar</button>
                                         <button class="btn btn-md" type="reset"><i class="fas fa-redo"></i>
                                             Restablecer</button>
@@ -298,7 +325,7 @@ session_start();
                 <div class="tab-pane active">
                     <p class="display-4">Usuario</p>
                     <hr>
-                    <form class="form" action="##" method="post" id="registrationForm2">
+                    <form method="POST">
                         <div class="row ">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -307,8 +334,8 @@ session_start();
                                         <label for="email">
                                             <h4>Correo</h4>
                                         </label>
-                                        <input type="email" class="form-control" name="email" id="email"
-                                            placeholder="tu correo..." value=" <?php echo $_SESSION['CORREO'] ?>">
+                                        <input type="email" class="form-control" name="email" placeholder="tu correo..."
+                                            value=" <?php echo $_SESSION['CORREO'] ?>">
                                     </div>
                                 </div>
                             </div>
@@ -319,7 +346,7 @@ session_start();
                                         <label for="password">
                                             <h4>Contraseña</h4>
                                         </label>
-                                        <input type="text" class="form-control" name="password" id="password"
+                                        <input type="text" class="form-control" name="contra"
                                             placeholder="tu contraseña..." value="<?php echo $_SESSION['PSWD'] ?>">
                                     </div>
                                 </div>
@@ -328,7 +355,7 @@ session_start();
                                 <div class="form-group">
                                     <div class="col-xs-12">
                                         <br>
-                                        <button class="btn btn-md btn-success" type="submit"><i
+                                        <button class="btn btn-md btn-success" type="submit" name="login"><i
                                                 class="fa fa-check-square"></i> Guardar</button>
                                         <button class="btn btn-md" type="reset"><i class="fas fa-redo"></i>
                                             Restablecer</button>
@@ -351,7 +378,152 @@ session_start();
             <!--/tab-content-->
         </div>
     </div>
+    <?php
+                            if(isset($_POST['personales'])){
+                                $nombre = $_POST["nombre"];
+                                $edad = $_POST["edad"];
+                                $telefono = $_POST["phone"];
+                                $lugar = $_POST["lugar"];
+                                $celular = $_POST["mobile"];
+                                $ID = $_SESSION['ID_PERSONA'];
+                                $ACTUALIZARDatos = "UPDATE usuario SET NOMBRE='$nombre',
+                                                                     EDAD='$edad',
+                                                                     TELEFONO='$telefono',
+                                                                     ID_LUGAR='$lugar',
+                                                                     CELULAR='$celular'
+                                                                     WHERE ID_PERSONA ='$ID'";
+                                include 'conexion.php';
+                                $actualizar = mysqli_query($conexion,$ACTUALIZARDatos);
 
+                                if($actualizar == TRUE){
+                                    $_SESSION['NOMBRE'] = $nombre;
+                                    $_SESSION['EDAD'] = $edad;
+                                    $_SESSION['TELEFONO'] = $telefono;
+                                    $_SESSION['CELULAR'] = $celular;
+                                    $_SESSION['ID_LUGAR'] = $lugar;
+                                    
+                                    echo '<script> 
+            
+           
+                                        alert("Actualización exitosa.");
+                                        window.location="datos.php";
+                    
+                                     </script>';
+                                } else {
+                                    echo "Error en la linea SQL";
+                                }
+
+                                
+                                   
+                                
+                            }
+                            if(isset($_POST['datos_servicios'])){
+                                $serv = $_POST["servicio"];
+                                $a_exp = $_POST["expe"];
+                                $ID = $_SESSION['ID_PERSONA'];
+                                $ACTUALIZARDatos2 = "UPDATE usuario SET ID_SERVICIOS='$serv',
+                                                                     AN_EXPERIENCIA ='$a_exp'
+                                                                     WHERE ID_PERSONA ='$ID'";
+                                include 'conexion.php';
+                                $actualizar2 = mysqli_query($conexion,$ACTUALIZARDatos2);
+
+                                if($actualizar2 == TRUE){
+                                    $_SESSION['ID_SERVICIO'] = $servicio;
+                                    $_SESSION['AN_EXPERIENCIA'] = $a_exp;
+                                    
+                                    echo '<script> 
+
+
+                                        alert("Actualización exitosa.");
+                                        window.location = "datos.php";
+
+                                    </script>';
+                                } else {
+                                    echo '<script> 
+
+
+                                        alert("Error.");
+
+
+                                    </script>';
+                                }
+
+                                
+                                   
+                                
+                            }
+                            if(isset($_POST['login'])){
+                                $user = $_POST["email"];
+                                $contra = $_POST["contra"];
+                                $ID = $_SESSION['ID_PERSONA'];
+                                $ACTUALIZARDatos3 = "UPDATE usuario SET CORREO='$user',
+                                                                     PSWD ='$contra'
+                                                                     WHERE ID_PERSONA ='$ID'";
+                                include 'conexion.php';
+                                $actualizar3 = mysqli_query($conexion,$ACTUALIZARDatos3);
+
+                                if($actualizar3 == TRUE){
+                                    $_SESSION['CORREO'] = $user;
+                                    $_SESSION['PSWD'] = $contra;
+                                    
+                                    echo '<script> 
+
+
+                                        alert("Actualización exitosa.");
+                                        window.location = "datos.php";
+
+                                    </script>';
+                                } else {
+                                    echo '<script> 
+
+
+                                        alert("Error.");
+
+
+                                    </script>';
+                                }
+
+                                
+                                   
+                                
+                            }
+                            if(isset($_POST['redes_sociales'])){
+                                $facebook_ = $_POST["facebook_"];
+                                $instagram_ = $_POST["instagram_"];
+                                $ID = $_SESSION['ID_PERSONA'];
+                                $ACTUALIZARDatos4 = "UPDATE usuario SET FACEBOOK='$facebook_',
+                                                                     INSTAGRAM ='$instagram_'
+                                                                     WHERE ID_PERSONA ='$ID'";
+                                include 'conexion.php';
+                                $actualizar4 = mysqli_query($conexion,$ACTUALIZARDatos4);
+
+                                if($actualizar4 == TRUE){
+                                    $_SESSION['FACEBOOK'] = $facebook_;
+                                    $_SESSION['INSTAGRAM'] = $instagram_;
+                                    
+                                    echo '<script> 
+
+
+                                        alert("Actualización exitosa.");
+                                        window.location = "datos.php";
+
+                                    </script>';
+                                } else {
+                                    echo '<script> 
+
+
+                                        alert("Error.");
+
+
+                                    </script>';
+                                }
+
+                                
+                                   
+                                
+                            }
+                            
+                            ?>
 </body>
 
 
@@ -373,5 +545,6 @@ session_start();
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
 <script src="js/scripts.js"></script>
+<script src="js/imagen.js"></script>
 
 </html>
