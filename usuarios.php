@@ -8,7 +8,18 @@ $persona = array(
     'msg' => 'Se requiere mayor información sobre el funcionamiento de su página',
     'fono' => '5930996434838'
     )
-);           
+); 
+
+$mail_usuario = array(
+    'info' => array(
+    'correo' =>  $_SESSION['CORREO'],
+    'asunto' => 'Información sobre su servicio',
+    'msg' => 'Me gustaría contratar sus servicios',
+
+    )
+);
+
+
 ?>
 
 <!doctype html>
@@ -26,6 +37,7 @@ $persona = array(
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
         crossorigin="anonymous"></script>
     <title>Panel Usuario</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/imagenes/minilogo.PNG" />
     <link rel="stylesheet" href="css/perfil.css">
 
     <link rel="stylesheet"
@@ -100,18 +112,34 @@ $persona = array(
                             <div class="name">
                                 <h3 class="title"><?php echo $_SESSION['NOMBRE'] ?></h3>
                                 <h6><?php echo $_SESSION['NOMBRE_SERVICIO'] ?></h6>
-                                <a class="btn btn-dark btn-social mx-2" href="https://github.com/aly9899"><i class="fab fa-whatsapp"
+                                <a class="btn btn-dark btn-social mx-2" href="mailto:
+                <?php echo $mail_usuario["info"]["correo"]; ?>
+                ?subject=<?php echo $persona["info"]["asunto"]; ?>
+                &body=<?php echo $persona["info"]["msg"]; ?>
+                "><i class="fas fa-envelope-open-text"
                                     target="_blank"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alyzz.vizcaino"><i class="fab fa-facebook-f"
+                            <a class="btn btn-dark btn-social mx-2" href="<?php echo $_SESSION['FACEBOOK'] ?>"><i class="fab fa-facebook-f"
                                     target="_blank"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/alisson-vizcaíno-a769511ba"><i class="fab fa-instagram-square"
+                            <a class="btn btn-dark btn-social mx-2" href="<?php echo $_SESSION['INSTAGRAM'] ?>"><i class="fab fa-instagram-square"
                                     target="_blank"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="description text-justify">
-                    <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                <div class="description text-justify">                
+                <ul>
+                <li>Enfocado a brindar el servicio de: <?php echo $_SESSION['NOMBRE_SERVICIO'] ?></li>
+                <li>Edad: <?php echo $_SESSION['EDAD'] ?> años. </li>
+                <li>Atención en la ciudad de: <?php echo $_SESSION['NOMBRE_LUGAR'] ?> </li>
+                <li>Comunicación directa por:
+                <ol>
+                <li>Teléfono: <?php echo $_SESSION['TELEFONO'] ?> </li>
+                <li>Celular: <?php echo $_SESSION['CELULAR'] ?></li>
+                </ol>
+                  </li>
+                <li>Cuenta con: <?php echo $_SESSION['AN_EXPERIENCIA'] ?> años de experiencia en su área</li> </li>
+                </ul>
+                    <p></p>
                 </div>
                 
                 <div class="row">
@@ -120,20 +148,14 @@ $persona = array(
                             <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
-                                        <i class="material-icons">camera</i>
-                                        Studio
+                                        <i class="fas fa-brain"></i>
+                                        Experiencia
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#works" role="tab" data-toggle="tab">
-                                        <i class="material-icons">palette</i>
-                                        Work
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
-                                        <i class="material-icons">favorite</i>
-                                        Favorite
+                                        <i class="fas fa-briefcase"></i>
+                                        Trabajos
                                     </a>
                                 </li>
                             </ul>

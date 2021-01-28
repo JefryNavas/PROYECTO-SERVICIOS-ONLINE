@@ -1,3 +1,16 @@
+<?php
+$persona = array(
+    'datos' => array(
+    'nombre' => 'Edwin Hernández',
+    'correo' => 'fonsihernández8@gmail.com',
+    'asunto' => 'Mas Información sobre TeContrato.com',
+    'msg' => 'Se requiere mayor información sobre el funcionamiento de su página',
+    'fono' => '5930996434838'
+    )
+);
+include ('conexion.php'); 
+?>
+
 <!doctype html>
 <html lang="es">
 
@@ -15,6 +28,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
         crossorigin="anonymous"></script>
     <title>Contrata un servicio</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/imagenes/minilogo.PNG" />
 </head>
 
 <body id="page-top">
@@ -125,7 +139,16 @@
                     <h1 class="display-4 text-center"><b>Contrata un servicio</b></h1>
                     <div class="card-deck p-4 pt-5">
                         <div class="row">
-                            <div class="col-md-6 col-lg-4 col-12 mb-5">
+                            <?php
+                            $query = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA FROM usuario, servicios s,lugar l 
+                             WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR  AND ESTATUS = 1 AND usuario.NOMBRE != 'ADMINISTRADOR DEL SISTEMA'";
+                            $llenarPaneles = mysqli_query($conexion,$query);
+                            $result = mysqli_num_rows($llenarPaneles);
+                            if($result >0){
+                                
+                                while($data = mysqli_fetch_array($llenarPaneles)){
+                                    ?>
+                                                                <div class="col-md-6 col-lg-4 col-12 mb-5">
                                 <div class="card align-items-center pt-4">
                                     <img class="rounded-circle"
                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
@@ -181,139 +204,18 @@
                                             </div>
 
                                         </div>
-
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
                                     </div>
 
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4 col-12 mb-5">
-                                <div class="card align-items-center pt-4">
-                                    <img class="rounded-circle"
-                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                        alt="Generic placeholder image" width="140" height="140">
 
-                                    <div class="card-body text-justify">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a
-                                            natural
-                                            lead-in
-                                            to additional
-                                            content. This content is a little bit longer.</p>
-                                        <div class="text-center">
-                                            <a class="btn btn-primary " style="color: black;" href="">Contactar</a>
-                                            <div class="row pt-3">
-                                                <div class="col-md-6">
-                                                    Calificar:
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <form>
+                                    
+                            <?php        
+                                }
+                            }
+                            ?>
+                            
 
-                                                        <p class="clasificacion">
-
-                                                            <input id="radio1" type="radio" name="estrellas" value="5">
-                                                            <!--
-                                                                  --><label for="radio1">★</label>
-                                                            <!--
-                                                                  --><input id="radio2" type="radio" name="estrellas"
-                                                                value="4">
-                                                            <!--
-                                                                  --><label for="radio2">★</label>
-                                                            <!--
-                                                                  --><input id="radio3" type="radio" name="estrellas"
-                                                                value="3">
-                                                            <!--
-                                                                  --><label for="radio3">★</label>
-                                                            <!--
-                                                                  --><input id="radio4" type="radio" name="estrellas"
-                                                                value="2">
-                                                            <!--
-                                                                  --><label for="radio4">★</label>
-                                                            <!--
-                                                                  --><input id="radio5" type="radio" name="estrellas"
-                                                                value="1">
-                                                            <!--
-                                                                  --><label for="radio5">★</label>
-                                                        </p>
-                                                    </form>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 col-12 mb-5">
-                                <div class="card align-items-center pt-4">
-                                    <img class="rounded-circle"
-                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                        alt="Generic placeholder image" width="140" height="140">
-
-                                    <div class="card-body text-justify">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a
-                                            natural
-                                            lead-in
-                                            to additional
-                                            content. This content is a little bit longer.</p>
-                                        <div class="text-center">
-                                            <a class="btn btn-primary " style="color: black;" href="">Contactar</a>
-                                            <div class="row pt-3">
-                                                <div class="col-md-6">
-                                                    Calificar:
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <form>
-
-                                                        <p class="clasificacion">
-
-                                                            <input id="radio1" type="radio" name="estrellas" value="5">
-                                                            <!--
-                                                                  --><label for="radio1">★</label>
-                                                            <!--
-                                                                  --><input id="radio2" type="radio" name="estrellas"
-                                                                value="4">
-                                                            <!--
-                                                                  --><label for="radio2">★</label>
-                                                            <!--
-                                                                  --><input id="radio3" type="radio" name="estrellas"
-                                                                value="3">
-                                                            <!--
-                                                                  --><label for="radio3">★</label>
-                                                            <!--
-                                                                  --><input id="radio4" type="radio" name="estrellas"
-                                                                value="2">
-                                                            <!--
-                                                                  --><label for="radio4">★</label>
-                                                            <!--
-                                                                  --><input id="radio5" type="radio" name="estrellas"
-                                                                value="1">
-                                                            <!--
-                                                                  --><label for="radio5">★</label>
-                                                        </p>
-                                                    </form>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <a class="nav-link" href="#services">Ver trabajos Realizados</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
-                                    </div>
-
-                                </div>
-                            </div>
                             
                         </div>
 

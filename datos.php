@@ -15,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <title>Datos Personales</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/imagenes/minilogo.PNG" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/estilos.css">
@@ -117,7 +118,7 @@ session_start();
                                         <div class="col-xs-6">
 
                                             <input type="text" class="form-control" name="facebook_"
-                                                placeholder="tu facebook..."
+                                                placeholder="tu perfil facebook..."
                                                 value="<?php echo $_SESSION['FACEBOOK'] ?>">
                                         </div>
                                     </div>
@@ -128,7 +129,7 @@ session_start();
                                         <div class="col-xs-6">
 
                                             <input type="text" class="form-control" name="instagram_"
-                                                placeholder="tu instagram..."
+                                                placeholder="tu perfil de instagram..."
                                                 value="<?php echo $_SESSION['INSTAGRAM'] ?>">
                                         </div>
                                     </div>

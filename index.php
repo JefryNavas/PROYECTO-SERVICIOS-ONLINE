@@ -206,7 +206,7 @@ $persona = array(
                 </div>
                 <div class="col-md-12">
                     <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger mt-4" style="color: black;"
-                        href="clientes.html">Contratar Servicio</a>
+                        href="clientes.php">Contratar Servicio</a>
 
                 </div>
             </div>
