@@ -97,10 +97,21 @@ include ('conexion.php');
                         <div class="p-4 pt-5">
                             <h5 style="color: black;">Categorías</h5>
                             <ul class="list-unstyled components mb-5">
+                            <li>
+                                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="true"
+                                        class="dropdown-toggle">Tipo de Servicio</a>
+                                    <ul class="collapse list-unstyled" style="display: unset"  id="pageSubmenu4">
+                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Albañilería</a></li>
+                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Carpintería</a></li>
+                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Plomería</a></li>
+                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Transportación</a></li>
+                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Soporte Técnico</a></li>
+                                    </ul>
+                                </li>
                                 <li>
-                                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="true"
+                                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false"
                                         class="dropdown-toggle">Experiencia</a>
-                                    <ul class="collapse list-unstyled" style="display: unset" id="pageSubmenu2">
+                                    <ul class="collapse list-unstyled" id="pageSubmenu2">
                                         <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>1 año</a></li>
                                         <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>2 años</a></li>
                                         <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>3 años</a></li>
@@ -118,17 +129,6 @@ include ('conexion.php');
                                         <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Otros</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false"
-                                        class="dropdown-toggle">Clothes</a>
-                                    <ul class="collapse list-unstyled" id="pageSubmenu4">
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jeans</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> T-shirt</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Jacket</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Shoes</a></li>
-                                        <li><a href="#"><span class="fa fa-chevron-right mr-2"></span> Sweater</a></li>
-                                    </ul>
-                                </li>
                             </ul>
 
 
@@ -140,7 +140,7 @@ include ('conexion.php');
                     <div class="card-deck p-4 pt-5">
                         <div class="row">
                             <?php
-                            $query = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA FROM usuario, servicios s,lugar l 
+                            $query = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION FROM usuario, servicios s,lugar l 
                              WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR  AND ESTATUS = 1 AND usuario.NOMBRE != 'ADMINISTRADOR DEL SISTEMA'";
                             $llenarPaneles = mysqli_query($conexion,$query);
                             $result = mysqli_num_rows($llenarPaneles);
@@ -163,11 +163,18 @@ include ('conexion.php');
 
                                     <div class="card-body text-justify">
                                         <h5 class="card-title"><?php echo $data['NOMBRE'] ?></h5>
-                                        <p class="card-text">This is a longer card with supporting text below as a
-                                            natural
-                                            lead-in
-                                            to additional
-                                            content. This content is a little bit longer.</p>
+                                        <p class="card-text">
+                                            <b>Servicio:  </b><?php echo $data['NOMBRE_SERVICIO'] ?><br>
+                                            <b>Ciudad:  </b><?php echo $data['nombre_lugar'] ?> <br>
+
+                                            <?php 
+                                            if($data['DESCRIPCION']==null){
+                                                echo "El usuario no ha agregado su descripción personal";
+                                            }else{
+                                                echo $data['DESCRIPCION'];
+                                            }
+                                            ?>
+                                        </p>
                                         <div class="text-center">
                                             <a class="btn btn-primary " style="color: black;" href="perfil.php?id=<?php echo $data['ID_PERSONA'];?>">Ir a Perfil</a>
                                             <div class="row pt-3">
@@ -235,7 +242,7 @@ include ('conexion.php');
                 <div class="card-deck pb-5 " style="color: white;">
                     <div class="row">
                             <?php
-                            $query2 = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA FROM usuario, servicios s,lugar l 
+                            $query2 = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION FROM usuario, servicios s,lugar l 
                              WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR  AND ESTATUS = 1 AND usuario.NOMBRE != 'ADMINISTRADOR DEL SISTEMA'";
                             $llenarPaneles2 = mysqli_query($conexion,$query2);
                             $result2 = mysqli_num_rows($llenarPaneles2);

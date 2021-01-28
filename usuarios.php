@@ -118,11 +118,11 @@ $mail_usuario = array(
                                     <?php echo $_SESSION['NOMBRE_SERVICIO'] ?>
                                 </h6>
                                 <a class="btn btn-dark btn-social mx-2 mt-3" href="mailto:
-                                    <?php echo $mail_usuario[" info"]["correo"]; ?>
+                                    <?php echo $mail_usuario["info"]["correo"]; ?>
                                     ?subject=
-                                    <?php echo $persona["info"]["asunto"]; ?>
+                                    <?php echo $mail_usuario["info"]["asunto"]; ?>
                                     &body=
-                                    <?php echo $persona["info"]["msg"]; ?>
+                                    <?php echo $mail_usuario["info"]["msg"]; ?>
                                     "><i class="fas fa-envelope-open-text" target="_blank"></i>
                                 </a>
                                 <a class="btn btn-dark btn-social mx-2 mt-3"
@@ -177,12 +177,10 @@ $mail_usuario = array(
                 <div class="col-sm-4 col-md-4 col-lg-4 ml-auto">
                     <div class="container-fluid description text-justify">
                         <h5 class="text-center">
-                            Descripción
+                            Descripción Personal
                         </h5>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam delectus nemo itaque
-                            nostrum, qui soluta illum quae asperiores voluptatem laboriosam eos blanditiis magni
-                            consectetur?
+                        <?php echo $_SESSION['DESCRIPCION'] ?>
                         </p>
                     </div>
                 </div>

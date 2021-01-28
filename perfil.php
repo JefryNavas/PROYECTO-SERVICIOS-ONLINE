@@ -14,7 +14,7 @@ if(empty($_REQUEST['id'])){
     header('location: clientes.php');
 }else{
     $idusuario = $_REQUEST['id'];
-    $query = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA FROM usuario, servicios s,lugar l 
+    $query = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION FROM usuario, servicios s,lugar l 
     WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR AND ID_PERSONA = $idusuario ";
     $llamarUsuario = mysqli_query($conexion,$query);
     $result = mysqli_num_rows($llamarUsuario);
@@ -123,7 +123,7 @@ if(empty($_REQUEST['id'])){
                                     <?php echo $row['NOMBRE_SERVICIO'] ?>
                                 </h6>
                                 <a class="btn btn-dark btn-social mx-2" href="mailto:
-                <?php echo $mail_usuario[" info"]["correo"]; ?>
+                <?php echo $mail_usuario["info"]["correo"]; ?>
                                     ?subject=
                                     <?php echo $mail_usuario["info"]["asunto"]; ?>
                                     &body=
@@ -164,8 +164,7 @@ if(empty($_REQUEST['id'])){
                                     <?php echo $row['nombre_lugar'] ?>
                                 </li>
                                 <li>Comunicación directa por:
-                                    <ol>
-                                        <li>Comunicación directa por:
+                                        
                                             <ol>
                                                 <li>Teléfono:
                                                     <?php echo $row['TELEFONO'] ?>
@@ -187,10 +186,13 @@ if(empty($_REQUEST['id'])){
                                 Descripción
                             </h5>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam delectus nemo
-                                itaque
-                                nostrum, qui soluta illum quae asperiores voluptatem laboriosam eos blanditiis magni
-                                consectetur?
+                            <?php 
+                                            if($row['DESCRIPCION']==null){
+                                                echo "El usuario no ha agregado su descripción personal";
+                                            }else{
+                                                echo $row['DESCRIPCION'];
+                                            }
+                                            ?>
                             </p>
                         </div>
                     </div>

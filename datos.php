@@ -232,9 +232,20 @@ session_start();
                                             <h4>Celular</h4>
                                         </label>
                                         <input type="text" class="form-control" name="mobile" id="mobile"
-                                            placeholder="tu número cecular..." value="<?php echo $_SESSION['CELULAR'] 
+                                            placeholder="tu número celular..." value="<?php echo $_SESSION['CELULAR'] 
                                             ?>">
                                     </div>
+
+                                    <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="mobile">
+                                            <h4>Descripción Personal</h4>
+                                        </label>
+                                        <textarea rows="8" cols="20" class="form-control" name="desc" id="desc"
+                                            placeholder="una descripción personal tuya..." ><?php echo $_SESSION['DESCRIPCION'] 
+                                            ?></textarea>  
+                                    </div>
+                                </div>
                                 </div>
 
                             </div>
@@ -386,12 +397,14 @@ session_start();
                                 $telefono = $_POST["phone"];
                                 $lugar = $_POST["lugar"];
                                 $celular = $_POST["mobile"];
+                                $descripcion = $_POST["desc"];
                                 $ID = $_SESSION['ID_PERSONA'];
                                 $ACTUALIZARDatos = "UPDATE usuario SET NOMBRE='$nombre',
                                                                      EDAD='$edad',
                                                                      TELEFONO='$telefono',
                                                                      ID_LUGAR='$lugar',
-                                                                     CELULAR='$celular'
+                                                                     CELULAR='$celular',
+                                                                     DESCRIPCION='$descripcion'
                                                                      WHERE ID_PERSONA ='$ID'";
                                 include 'conexion.php';
                                 $actualizar = mysqli_query($conexion,$ACTUALIZARDatos);
@@ -402,7 +415,7 @@ session_start();
                                     $_SESSION['TELEFONO'] = $telefono;
                                     $_SESSION['CELULAR'] = $celular;
                                     $_SESSION['ID_LUGAR'] = $lugar;
-                                    
+                                    $_SESSION['DESCRIPCION'] = $descripcion;
                                     echo '<script> 
             
            

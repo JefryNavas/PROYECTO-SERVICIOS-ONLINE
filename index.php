@@ -41,7 +41,7 @@ if(!empty($_SESSION['active'])){
             $alert = "Ingrese su usuario y su clave";
         }
 
-        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,PSWD,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA FROM usuario, servicios s,lugar l where CORREO= '$loginus' AND
+        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,PSWD,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION FROM usuario, servicios s,lugar l where CORREO= '$loginus' AND
         PSWD= '$loginpass' AND usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR  AND ESTATUS = 1";
         
         $ejecutarLogin = mysqli_query($conexion,$buscarLogin);
@@ -67,6 +67,7 @@ if(!empty($_SESSION['active'])){
             $_SESSION['ID_PERSONA'] = $row['ID_PERSONA'];
             $_SESSION['ID_LUGAR'] = $row['ID_LUGAR'];
             $_SESSION['NOMBRE_LUGAR'] = $row['nombre_lugar'];
+            $_SESSION['DESCRIPCION'] = $row['DESCRIPCION'];
 
             if($_SESSION['ID_TIPO'] == 1){
                 header("location: dashboard.php");
@@ -349,7 +350,7 @@ $persona = array(
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="assets/img/team/Amarilis.jpg" alt="" />
                         <h4>Amarilis Cueva</h4>
-                        <p class="text-muted">Former Designer</p>
+                        <p class="text-muted">C.F.O</p>
                         <a class="btn btn-dark btn-social mx-2" href="https://github.com/Amarilis7616"><i
                                 class="fab fa-github" target="_blank"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/amarilisCueva16/"
@@ -361,7 +362,7 @@ $persona = array(
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="assets/img/team/Joel.jpg" alt="" />
                         <h4>Joel Yunga</h4>
-                        <p class="text-muted">Former Marketer</p>
+                        <p class="text-muted">Tester</p>
                         <a class="btn btn-dark btn-social mx-2" href="https://github.com/JoelYunga"><i
                                 class="fab fa-github" target="_blank"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="https://m.facebook.com/joel.pm.10"><i
@@ -594,7 +595,7 @@ $persona = array(
                                 $contra = $_POST["password1"];
 
                                 $insertarDatos = "INSERT INTO usuario VALUES (NULL,'2','$servicio','$lugar','$nombre','$edad'
-                                ,'$correo','$contra',NULL, NULL, NULL, NULL, NULL, NULL,NULL,'1')";
+                                ,'$correo','$contra',NULL,NULL, NULL, NULL, NULL, NULL, NULL,NULL,'1')";
                                 include 'conexion.php';
                                 $ejecutarInsertar = mysqli_query($conexion,$insertarDatos);
                                 // session_destroy();
