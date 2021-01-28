@@ -114,8 +114,8 @@ $mail_usuario = array(
                                 <h6><?php echo $_SESSION['NOMBRE_SERVICIO'] ?></h6>
                                 <a class="btn btn-dark btn-social mx-2" href="mailto:
                 <?php echo $mail_usuario["info"]["correo"]; ?>
-                ?subject=<?php echo $persona["info"]["asunto"]; ?>
-                &body=<?php echo $persona["info"]["msg"]; ?>
+                ?subject=<?php echo $mail_usuario["info"]["asunto"]; ?>
+                &body=<?php echo $mail_usuario["info"]["msg"]; ?>
                 "><i class="fas fa-envelope-open-text"
                                     target="_blank"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="<?php echo $_SESSION['FACEBOOK'] ?>"><i class="fab fa-facebook-f"
