@@ -81,14 +81,14 @@ if(!empty($_SESSION['active'])){
             // session_destroy();
             $alert = "El usuario o la clave son incorrectos";
             echo '<script> 
-            
-           
-                
-                setTimeout(function() {
-                    $(".alert").fadeOut(1500);
-                    },3000);
 
-                 </script>';
+
+
+                setTimeout(function () {
+                    $(".alert").fadeOut(1500);
+                }, 3000);
+
+            </script>';
             session_destroy();
         }
 
@@ -141,19 +141,21 @@ $persona = array(
     <!-- Masthead-->
 
     <header class="masthead">
-        
-            <div class="alert container-fluid" >
-                <p class="py-3" style="display: unset;background: #565F59;"><?php echo isset($alert)? $alert: ''; ?></p>
-            </div>
 
-       <div class="container">
+        <div class="alert container-fluid">
+            <p class="py-3" style="display: unset;background: #565F59;">
+                <?php echo isset($alert)? $alert: ''; ?>
+            </p>
+        </div>
+
+        <div class="container">
             <div class="row align-items-end">
                 <div class="col-sm-12 col-md-12 col-lg-7">
                     <div class="masthead-subheading">Bienvenid@ a:</div>
 
-                    
-                        <img style="width: 70%" src="assets/img/imagenes/logo.png">
-                    
+
+                    <img style="width: 70%" src="assets/img/imagenes/logo.png">
+
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -288,7 +290,7 @@ $persona = array(
                 <h2 class="section-heading text-uppercase">Integrantes</h2>
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center">
-                        <p class="large text-muted">Conoce al equipo encargado  de que toda esta empresa funcione de la 
+                        <p class="large text-muted">Conoce al equipo encargado de que toda esta empresa funcione de la
                             mejor manera para todos nuestros usuarios.
                         </p>
                     </div>
@@ -314,26 +316,29 @@ $persona = array(
                         <img class="mx-auto rounded-circle" src="assets/img/team/Edwin.jpg" alt="" />
                         <h4>Edwin Hernández</h4>
                         <p class="text-muted">Lead Developer</p>
-                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/fonsiher"><i class="fab fa-github"
+                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/fonsiher"><i
+                                class="fab fa-github" target="_blank"></i></a>
+                        <a class="btn btn-dark btn-social mx-2"
+                            href="https://www.facebook.com/profile.php?id=100001976085138"><i class="fab fa-facebook-f"
                                 target="_blank"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/profile.php?id=100001976085138"><i class="fab fa-facebook-f"
-                                target="_blank"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/edwin-hern%C3%A1ndez-090306202/"><i class="fab fa-linkedin-in"
-                                target="_blank"></i></a>
+                        <a class="btn btn-dark btn-social mx-2"
+                            href="https://www.linkedin.com/in/edwin-hern%C3%A1ndez-090306202/"><i
+                                class="fab fa-linkedin-in" target="_blank"></i></a>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <div class="team-member">
 
-                        
+
                         <img class="mx-auto rounded-circle" src="assets/img/team/Aliss.jpg" alt="" />
                         <h4>Alisson Vizcaíno</h4>
                         <p class="text-muted">Lead Marketer </p>
-                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/aly9899"><i class="fab fa-github"
-                                target="_blank"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alyzz.vizcaino"><i class="fab fa-facebook-f"
-                                target="_blank"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/alisson-vizcaíno-a769511ba"><i class="fab fa-linkedin-in"
+                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/aly9899"><i
+                                class="fab fa-github" target="_blank"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/alyzz.vizcaino"><i
+                                class="fab fa-facebook-f" target="_blank"></i></a>
+                        <a class="btn btn-dark btn-social mx-2"
+                            href="https://www.linkedin.com/in/alisson-vizcaíno-a769511ba"><i class="fab fa-linkedin-in"
                                 target="_blank"></i></a>
                     </div>
                 </div>
@@ -345,8 +350,8 @@ $persona = array(
                         <img class="mx-auto rounded-circle" src="assets/img/team/Amarilis.jpg" alt="" />
                         <h4>Amarilis Cueva</h4>
                         <p class="text-muted">Former Designer</p>
-                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/Amarilis7616"><i class="fab fa-github"
-                                target="_blank"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/Amarilis7616"><i
+                                class="fab fa-github" target="_blank"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/amarilisCueva16/"
                             target="_blank"><i class="fab fa-facebook-f"></i></a>
 
@@ -357,11 +362,12 @@ $persona = array(
                         <img class="mx-auto rounded-circle" src="assets/img/team/Joel.jpg" alt="" />
                         <h4>Joel Yunga</h4>
                         <p class="text-muted">Former Marketer</p>
-                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/JoelYunga"><i class="fab fa-github"
-                                target="_blank"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="https://m.facebook.com/joel.pm.10"><i class="fab fa-facebook-f"
-                                target="_blank"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/joel-yunga-1b899a204"><i class="fab fa-linkedin-in"
+                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/JoelYunga"><i
+                                class="fab fa-github" target="_blank"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://m.facebook.com/joel.pm.10"><i
+                                class="fab fa-facebook-f" target="_blank"></i></a>
+                        <a class="btn btn-dark btn-social mx-2"
+                            href="https://www.linkedin.com/in/joel-yunga-1b899a204"><i class="fab fa-linkedin-in"
                                 target="_blank"></i></a>
                     </div>
                 </div>
@@ -419,7 +425,8 @@ $persona = array(
             </form>
             <br>
 
-            <h4 style = 'color: white'>Si tienes quejas o sugerencias sobre nuestros servicios da click <a href="sugerencias.html">Aquí</a> </h4>
+            <h4 style='color: white'>Si tienes quejas o sugerencias sobre nuestros servicios da click <a
+                    href="sugerencias.html">Aquí</a> </h4>
         </div>
     </section>
 
@@ -431,12 +438,17 @@ $persona = array(
                 <div class="col-sm-3 col-md-4 col-lg-4 text-lg-left">Copyright © TeContrato.com 2021</div>
                 <div class="col-sm-6 col-md-4 col-lg-4 my-3 my-lg-0">
                     <a class="btn btn-dark btn-social mx-2" href="mailto:
-                <?php echo $persona["datos"]["correo"]; ?>
-                ?subject=<?php echo $persona["datos"]["asunto"]; ?>
-                &body=<?php echo $persona["datos"]["msg"]; ?>
-                "><i class="fas fa-envelope-open-text"></i></a>
+                <?php echo $persona[" datos"]["correo"]; ?>
+                        ?subject=
+                        <?php echo $persona["datos"]["asunto"]; ?>
+                        &body=
+                        <?php echo $persona["datos"]["msg"]; ?>
+                        "><i class="fas fa-envelope-open-text"></i>
+                    </a>
                     <a class="btn btn-dark btn-social mx-2" href="https://api.whatsapp.com/send?phone=
-                    <?php echo $persona["datos"]["fono"]; ?>&text=<?php echo $persona["datos"]["msg"]; ?>" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <?php echo $persona[" datos"]["fono"]; ?>&text=
+                        <?php echo $persona["datos"]["msg"]; ?>" target="_blank"><i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
                 <div class="col-sm-3 col-md-4 col-lg-4 text-lg-right">
                     <a class="mr-3" href="#!">Políticas de Privacidad</a>
@@ -463,7 +475,7 @@ $persona = array(
                         <img src="assets/img/imagenes/iniciar2.png" alt="">
                     </div>
                     <div class="d-flex flex-column text-center">
-                        <form  action = '' name='formularioingresar' method='POST'>
+                        <form action='' name='formularioingresar' method='POST'>
                             <div class="form-group">
                                 <input type="email" name="emailin" class="form-control" placeholder="Tu correo ...">
                             </div>
@@ -471,8 +483,9 @@ $persona = array(
                                 <input type="password" name="passwordin" class="form-control"
                                     placeholder="Tu contraseña ...">
                             </div>
-                            
-                            <input type="submit" class="btn btn-primary btn-block btn-round" name='ingresar' id="ingresar" value ='Iniciar Sesión'>
+
+                            <input type="submit" class="btn btn-primary btn-block btn-round" name='ingresar'
+                                id="ingresar" value='Iniciar Sesión'>
                         </form>
 
 
@@ -515,10 +528,12 @@ $persona = array(
                                         $consulta = 'SELECT * FROM servicios';
                                         $ejecutar = mysqli_query($conexion,$consulta);
                                         ?>
-                                        <select name="servicio" class="form-control" >
-                                            <option value="" >Qué servicio ofrece:</option>
+                                        <select name="servicio" class="form-control">
+                                            <option value="">Qué servicio ofrece:</option>
                                             <?php foreach ($ejecutar as $opciones):?>
-                                                <option value="<?php echo $opciones['ID_SERVICIOS']?>"><?php echo $opciones['NOMBRE_SERVICIO'] ?></option>
+                                            <option value="<?php echo $opciones['ID_SERVICIOS']?>">
+                                                <?php echo $opciones['NOMBRE_SERVICIO'] ?>
+                                            </option>
                                             <?php endforeach?>
                                         </select>
                                     </div>
@@ -529,24 +544,30 @@ $persona = array(
                                         $ejecutar = mysqli_query($conexion,$consulta);
                                         ?>
                                         <select name="lugar" class="form-control">
-                                            <option value="" >En qué ciudad trabaja:</option>
+                                            <option value="">En qué ciudad trabaja:</option>
                                             <?php foreach ($ejecutar as $opciones):?>
-                                                <option value="<?php echo $opciones['ID_LUGAR']?>"><?php echo $opciones['nombre_lugar'] ?></option>
+                                            <option value="<?php echo $opciones['ID_LUGAR']?>">
+                                                <?php echo $opciones['nombre_lugar'] ?>
+                                            </option>
                                             <?php endforeach?>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name='nombre' class="form-control" placeholder="Tu nombre ..." required>
+                                        <input type="text" name='nombre' class="form-control"
+                                            placeholder="Tu nombre ..." required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" name='edad' class="form-control" placeholder="Tu edad ..." required>
+                                        <input type="number" name='edad' class="form-control" placeholder="Tu edad ..."
+                                            required>
                                     </div>
-                       
+
                                     <div class="form-group">
-                                        <input type="email" name='email' class="form-control" placeholder="Tu email ..." required>
+                                        <input type="email" name='email' class="form-control" placeholder="Tu email ..."
+                                            required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" id="id_pwd" name="password1" class="form-control" placeholder="Tu contraseña ..." required>
+                                        <input type="password" id="id_pwd" name="password1" class="form-control"
+                                            placeholder="Tu contraseña ..." required>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" name="password2"
@@ -559,7 +580,8 @@ $persona = array(
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Enlace de tu perfil de Instragram">
                                     </div> -->
-                                    <input type="submit" class="btn btn-primary btn-block btn-round" name='registrarse' value ='Regístrate'>
+                                    <input type="submit" class="btn btn-primary btn-block btn-round" name='registrarse'
+                                        value='Regístrate'>
                                 </form>
                             </div>
                             <?php
@@ -577,6 +599,15 @@ $persona = array(
                                 $ejecutarInsertar = mysqli_query($conexion,$insertarDatos);
                                 // session_destroy();
                                 // header('location: index.php');
+                                if($ejecutarInsertar == TRUE){
+                                    echo '<script> 
+                                        
+                                        
+                                            alert("Registro Exitoso");
+                                            window.location = "index.php";
+                                        
+                                        </script>';
+                                }
                                 if(!$ejecutarInsertar){
                                     echo "Error en la linea SQL";
                                 }

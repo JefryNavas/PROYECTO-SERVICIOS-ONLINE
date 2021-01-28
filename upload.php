@@ -11,29 +11,54 @@ if(isset($_POST["submit"])) {//detecta el boton
         echo "Archivo es una imagen- " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "El archivo no es una imagen";
+        echo '<script> 
+    
+    
+        alert("El archivo no es una imagen");
+        window.location = "datos.php";
+    
+    </script>';
         $uploadOk = 0;
     }
 }
 // Comprobar si el archivo ya existe
 if (file_exists($target_file)) {
-    echo "El archivo ya existe";
+    echo '<script> 
+    
+    
+    alert("El archivo ya existe.");
+    window.location = "datos.php";
+
+</script>';
     $uploadOk = 0;//si existe lanza un valor en 0
 }
 // Comprueba el peso
 if ($_FILES["fileToUpload"]["size"] > 2000000) {
-    echo "Perdon pero el archivo es muy pesado";
+    echo '<script> 
+    
+    alert("Perdon pero el archivo es muy pesado.");
+    window.location = "datos.php";
+
+</script>';
     $uploadOk = 0;
 }
 // Permitir ciertos formatos de archivo
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
-    echo "Perdon solo, JPG, JPEG, PNG & GIF Estan soportados";
+    echo '<script> 
+    alert("Perdon solo, JPG, JPEG, PNG & GIF Estan soportados.");
+    window.location = "datos.php";
+
+</script>';
     $uploadOk = 0;
 }
 //Comprueba si $ uploadOk se establece en 0 por un error
 if ($uploadOk == 0) {
-    echo "Perdon, pero el archivo no se subio";
+    echo '<script> 
+    alert("Error al subir el archivo.");
+    window.location = "datos.php";
+
+</script>';
 // si todo está bien, intenta subir el archivo
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -50,7 +75,7 @@ if($actualizar5 == TRUE){
 
 
         alert("Actualización exitosa.");
-
+        window.location = "datos.php";
     </script>';
 } else {
     echo '<script> 
