@@ -153,7 +153,7 @@ include ('conexion.php');
                                     <img class="rounded-circle"
                                     <?php
                                     if ($data['FOTO'] == null) {
-                                    $link = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==";
+                                    $link = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
                                      } else {
                                         $link = $data['FOTO'];
                                      }
