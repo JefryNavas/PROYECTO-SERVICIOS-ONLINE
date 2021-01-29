@@ -118,3 +118,7 @@ img.rounded {
         display: none;
     }
   }
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }

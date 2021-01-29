@@ -70,8 +70,14 @@ $mail_usuario = array(
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarios.php">Perfil</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="datos.php">EDITAR Datos
-                            Personales</a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  EDITAR PERFIL </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="datos.php">DATOS PERSONALES</a></li>
+                                <li><a class="dropdown-item" href="formacion.php">FORMACIÓN</a></li>
+                                <li><a class="dropdown-item" href="trabajos.php">TRABAJOS</a></li>
+                            </ul>
                     </li>
 
                     <li class="nav-item dropdown">

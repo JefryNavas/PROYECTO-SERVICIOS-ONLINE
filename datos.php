@@ -47,10 +47,14 @@ session_start();
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarios.php">Perfil</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="datos.php">Editar Datos
-                            Personales</a>
-                    </li>
-
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  EDITAR PERFIL </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="datos.php">DATOS PERSONALES</a></li>
+                                <li><a class="dropdown-item" href="formacion.php">FORMACIÓN</a></li>
+                                <li><a class="dropdown-item" href="trabajos.php">TRABAJOS</a></li>
+                            </ul>
+                        </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
@@ -560,5 +564,6 @@ session_start();
     crossorigin="anonymous"></script>
 <script src="js/scripts.js"></script>
 <script src="js/imagen.js"></script>
+<script src="js/usuarios.js"></script>
 
 </html>
