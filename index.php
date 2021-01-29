@@ -41,7 +41,8 @@ if(!empty($_SESSION['active'])){
             $alert = "Ingrese su usuario y su clave";
         }
 
-        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,PSWD,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION FROM usuario, servicios s,lugar l where CORREO= '$loginus' AND
+        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,PSWD,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION,NUM_VISITAS,NUM_REDES FROM usuario, servicios s,lugar l
+        where CORREO= '$loginus' AND
         PSWD= '$loginpass' AND usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR  AND ESTATUS = 1";
         
         $ejecutarLogin = mysqli_query($conexion,$buscarLogin);
@@ -68,6 +69,8 @@ if(!empty($_SESSION['active'])){
             $_SESSION['ID_LUGAR'] = $row['ID_LUGAR'];
             $_SESSION['NOMBRE_LUGAR'] = $row['nombre_lugar'];
             $_SESSION['DESCRIPCION'] = $row['DESCRIPCION'];
+            $_SESSION['NUM_VISITAS'] = $row['NUM_VISITAS'];
+            $_SESSION['NUM_REDES'] = $row['NUM_REDES'];
 
             if($_SESSION['ID_TIPO'] == 1){
                 header("location: dashboard.php");
@@ -439,7 +442,7 @@ $persona = array(
                 <div class="col-sm-3 col-md-4 col-lg-4 text-lg-left">Copyright © TeContrato.com 2021</div>
                 <div class="col-sm-6 col-md-4 col-lg-4 my-3 my-lg-0">
                     <a class="btn btn-dark btn-social mx-2" href="mailto:
-                <?php echo $persona[" datos"]["correo"]; ?>
+                <?php echo $persona["datos"]["correo"]; ?>
                         ?subject=
                         <?php echo $persona["datos"]["asunto"]; ?>
                         &body=
@@ -447,7 +450,7 @@ $persona = array(
                         "><i class="fas fa-envelope-open-text"></i>
                     </a>
                     <a class="btn btn-dark btn-social mx-2" href="https://api.whatsapp.com/send?phone=
-                    <?php echo $persona[" datos"]["fono"]; ?>&text=
+                    <?php echo $persona["datos"]["fono"]; ?>&text=
                         <?php echo $persona["datos"]["msg"]; ?>" target="_blank"><i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
@@ -595,7 +598,7 @@ $persona = array(
                                 $contra = $_POST["password1"];
 
                                 $insertarDatos = "INSERT INTO usuario VALUES (NULL,'2','$servicio','$lugar','$nombre','$edad'
-                                ,'$correo','$contra',NULL,NULL, NULL, NULL, NULL, NULL, NULL,NULL,'1')";
+                                ,'$correo','$contra',NULL,NULL, NULL, NULL, NULL, NULL, NULL,0,0,'1')";
                                 include 'conexion.php';
                                 $ejecutarInsertar = mysqli_query($conexion,$insertarDatos);
                                 // session_destroy();

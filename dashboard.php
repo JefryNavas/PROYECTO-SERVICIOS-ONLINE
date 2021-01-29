@@ -12,6 +12,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Administrador</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/imagenes/minilogo.PNG" />
     <link href="css/dashboard.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
         crossorigin="anonymous"></script>
@@ -75,7 +76,7 @@ session_start();
                     <div class="row">
                         <div class="col-sm-6 col-md-3">
                             <div class="card bg-primary text-white mb-4">
-                                <div class="card-body text-uppercase text-center">usuarios Registrados</div>
+                                <div class="card-body text-uppercase text-center">TOTAl de usuarios Registrados</div>
                                 <div class="card-footer text-center">
                                 <?php
                                     $query_numero = mysqli_query($conexion,"SELECT count(ID_PERSONA) FROM usuario");
@@ -87,7 +88,7 @@ session_start();
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="card bg-warning text-white mb-4">
-                                <div class="card-body text-uppercase text-center">Mensajería interna</div>
+                                <div class="card-body text-uppercase text-center">TOTal de clicks a Mensajería interna</div>
                                 <div class="card-footer text-center">
                                     1234
                                 </div>
@@ -95,17 +96,25 @@ session_start();
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="card bg-success text-white mb-4">
-                                <div class="card-body text-uppercase text-center">visitas a las paginas</div>
+                                <div class="card-body text-uppercase text-center">total de visitas a perfiles de los usuarios</div>
                                 <div class="card-footer text-center">
-                                    1234
+                                <?php
+                                    $query_numero3 = mysqli_query($conexion,"SELECT SUM(NUM_VISITAS) FROM usuario");
+                                    $numero3 = mysqli_fetch_array($query_numero3);
+                                    ?>
+                                    <?php echo $numero3[0] ?>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="card bg-danger text-white mb-4">
-                                <div class="card-body text-uppercase text-center">Acceso a redes sociales</div>
+                                <div class="card-body text-uppercase text-center">Total de Accesos a redes sociales</div>
                                 <div class="card-footer text-center">
-                                    1234
+                                <?php
+                                    $query_numero4 = mysqli_query($conexion,"SELECT SUM(NUM_REDES) FROM usuario");
+                                    $numero4 = mysqli_fetch_array($query_numero4);
+                                    ?>
+                                    <?php echo $numero4[0] ?>
 
                                 </div>
                             </div>
@@ -115,7 +124,7 @@ session_start();
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-user-plus"></i>
-                            USUARIOS MÁS VISITADOS
+                             TOP 5 USUARIOS MÁS VISITADOS
                         </div>
                         <div class="card-body">
                             <div class="table-responsive table-striped">
@@ -126,29 +135,36 @@ session_start();
                                             <th>Servicio</th>
                                             <th>Ciudad</th>
                                             <th>Edad</th>
-                                            <th>Telefono</th>
-                                            <th>Clicks a redes sociales</th>
+                                            <th>Num. visitas a perfil</th>
+                                            <th>Visitas a Redes Sociales</th>
 
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <tr>
-                                            <td>Nombre</td>
-                                            <td>Servicio</td>
-                                            <td>Ciudad</td>
-                                            <td>Edad</td>
-                                            <td>Teléfono</td>
-                                            <td>Clicks a redes sociales</td>
+                                    <?php
+                                    $query2 = "SELECT NOMBRE,s.NOMBRE_SERVICIO,l.nombre_lugar, EDAD, ID_PERSONA, NUM_VISITAS,NUM_REDES FROM `usuario`, servicios s, lugar l WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR
+                                     and usuario.NOMBRE != 'ADMINISTRADOR DEL SISTEMA'and ESTATUS = 1 ORDER BY NUM_VISITAS DESC LIMIT 5";
+                                    $masVisitados = mysqli_query($conexion,$query2);
+                                    $result2 = mysqli_num_rows($masVisitados);
+                                    if($result2 >0){
+                                        while($data2 = mysqli_fetch_array($masVisitados)){
+                                            ?>    
+                                            <tr>
+                                            <td><?php echo $data2[0] ?></td>
+                                            <td><?php echo $data2[1] ?></td>
+                                            <td><?php echo $data2[2] ?></td>
+                                            <td><?php echo $data2[3] ?></td>
+                                            <td><?php echo $data2[5] ?></td>
+                                            <td><?php echo $data2[6] ?></td>
                                         </tr>
-                                        <tr>
-                                        <td>Nombre</td>
-                                            <td>Servicio</td>
-                                            <td>Ciudad</td>
-                                            <td>Edad</td>
-                                            <td>Teléfono</td>
-                                            <td>Clicks a redes sociales</td>
-                                        </tr>
+                                    <?php    
+
+                                        }
+                                    }
+                                    ?>
+                                   
+
                                     </tbody>
                                 </table>
                             </div>

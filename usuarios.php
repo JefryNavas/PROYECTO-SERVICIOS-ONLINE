@@ -115,7 +115,13 @@ $mail_usuario = array(
                                     <?php echo $_SESSION['NOMBRE'] ?>
                                 </h3>
                                 <h6>
-                                    <?php echo $_SESSION['NOMBRE_SERVICIO'] ?>
+                                    <?php echo $_SESSION['NOMBRE_SERVICIO'] ?> 
+                                </h6>
+                                <h6>
+                                    <?php echo $_SESSION['NUM_VISITAS'] ?> Persona(s) Han visitado tu perfil. 
+                                </h6>
+                                <h6>
+                                    <?php echo $_SESSION['NUM_REDES'] ?> Persona(s) Han visto tus Redes Sociales. 
                                 </h6>
                                 <a class="btn btn-dark btn-social mx-2 mt-3" href="mailto:
                                     <?php echo $mail_usuario["info"]["correo"]; ?>

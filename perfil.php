@@ -14,7 +14,7 @@ if(empty($_REQUEST['id'])){
     header('location: clientes.php');
 }else{
     $idusuario = $_REQUEST['id'];
-    $query = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION FROM usuario, servicios s,lugar l 
+    $query = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION,NUM_VISITAS FROM usuario, servicios s,lugar l 
     WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR AND ID_PERSONA = $idusuario ";
     $llamarUsuario = mysqli_query($conexion,$query);
     $result = mysqli_num_rows($llamarUsuario);
@@ -22,6 +22,18 @@ if(empty($_REQUEST['id'])){
     if($result > 0){
         $row = mysqli_fetch_array($llamarUsuario);
     }
+    $nuevo_num = 0;
+
+    if($row['NUM_VISITAS']==0){
+        $nuevo_num = 1;
+    }else{
+        $nuevo_num = $row['NUM_VISITAS'] +1;
+    }
+
+    $ACTUALIZARvisitas = "UPDATE usuario SET NUM_VISITAS='$nuevo_num' WHERE ID_PERSONA ='$idusuario'";
+    $actualizar2 = mysqli_query($conexion,$ACTUALIZARvisitas);
+
+
     
     $mail_usuario = array(
         'info' => array(
@@ -130,9 +142,9 @@ if(empty($_REQUEST['id'])){
                                     <?php echo $mail_usuario["info"]["msg"]; ?>
                                     "><i class="fas fa-envelope-open-text" target="_blank"></i>
                                 </a>
-                                <a class="btn btn-dark btn-social mx-2" href="<?php echo $row['FACEBOOK'] ?>"><i
+                                <a class="btn btn-dark btn-social mx-2" href="redireccion.php?id=<?php echo $idusuario ?>"><i
                                         class="fab fa-facebook-f" target="_blank"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="<?php echo $row['INSTAGRAM'] ?>"><i
+                                <a class="btn btn-dark btn-social mx-2" href="redirect2.php?id=<?php echo $idusuario ?>"><i
                                         class="fab fa-instagram-square" target="_blank"></i></a>
                             </div>
                         </div>
@@ -333,7 +345,7 @@ if(empty($_REQUEST['id'])){
                 <div class="col-sm-3 col-md-4 col-lg-4 text-lg-left">Copyright © TeContrato.com 2021</div>
                 <div class="col-sm-6 col-md-4 col-lg-4 my-3 my-lg-0">
                     <a class="btn btn-dark btn-social mx-2" href="mailto:
-                <?php echo $persona[" datos"]["correo"]; ?>
+                <?php echo $persona["datos"]["correo"]; ?>
                         ?subject=
                         <?php echo $persona["datos"]["asunto"]; ?>
                         &body=
@@ -341,7 +353,7 @@ if(empty($_REQUEST['id'])){
                         "><i class="fas fa-envelope-open-text"></i>
                     </a>
                     <a class="btn btn-dark btn-social mx-2" href="https://api.whatsapp.com/send?phone=
-                    <?php echo $persona[" datos"]["fono"]; ?>&text=
+                    <?php echo $persona["datos"]["fono"]; ?>&text=
                         <?php echo $persona["datos"]["msg"]; ?>" target="_blank"><i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
