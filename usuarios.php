@@ -130,7 +130,10 @@ $mail_usuario = array(
                                     <?php echo $_SESSION['NUM_REDES'] ?> Persona(s) Han visto tus Redes Sociales. 
                                 </h6>
                                 <h6>
-                                    <?php echo $_SESSION['NUM_SMS'] ?> Persona(s) Te contactaron por WhatsApp. 
+                                    <?php echo $_SESSION['NUM_SMS'] ?> Persona(s) Te han contactado por WhatsApp. 
+                                </h6>
+                                <h6>
+                                    <?php echo $_SESSION['NUM_COR'] ?> Persona(s) Te han contactado por E-Mail. 
                                 </h6>
                                 <a class="btn btn-dark btn-social mx-2 mt-3" href="mailto:
                                     <?php echo $mail_usuario["info"]["correo"]; ?>

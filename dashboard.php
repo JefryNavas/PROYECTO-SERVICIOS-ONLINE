@@ -88,13 +88,16 @@ session_start();
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="card bg-warning text-white mb-4">
-                                <div class="card-body text-uppercase text-center">TOTal de clicks a Mensajería interna (WhatsApp)</div>
+                                <div class="card-body text-uppercase text-center">TOTal Mensajería interna (WhatsApp/Email)</div>
                                 <div class="card-footer text-center">
                                 <?php
                                     $query_numero2 = mysqli_query($conexion,"SELECT SUM(NUM_SMS) FROM usuario");
                                     $numero2 = mysqli_fetch_array($query_numero2);
-                                    ?>
-                                    <?php echo $numero2[0] ?>
+                                    $query_numero22 = mysqli_query($conexion,"SELECT SUM(NUM_COR) FROM usuario");
+                                    $numero22 = mysqli_fetch_array($query_numero22);
+                                    $totalsms = $numero2[0]+$numero22[0];
+                                ?>
+                                <?php echo $totalsms ?>
                                    
                                 </div>
                             </div>

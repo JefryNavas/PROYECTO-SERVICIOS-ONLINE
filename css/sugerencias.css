@@ -1,5 +1,5 @@
 body {
-    background-color: #2ecc71;
+    background-color: #9ebdab;
     font-family: source-sans-pro, sans-serif;
   }
   
@@ -18,7 +18,8 @@ body {
   }
   
   .formStyle { 
-    background-color: #2ecc71;
+    background-color: #dce470;
+    align-items: center;
     padding: 20px; 
     width: 400px; 
     margin-bottom: 20px; 
@@ -37,7 +38,7 @@ body {
       text-align: center;
       background-color:#ffffff;
       display:inline-block;
-      color:#2ecc71;
+      color:#60cc2e;
       font-size:28px;
       font-weight: 500;
       padding:6px 24px;

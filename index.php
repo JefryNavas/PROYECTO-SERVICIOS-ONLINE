@@ -394,23 +394,23 @@ $persona = array(
                 <h2 class="section-heading text-uppercase">Contáctanos</h2>
                 <h3 class="section-subheading text-muted">_</h3>
             </div>
-            <form id="contactForm" action="mailto:administrador@tecontrato.com" method="POST" enctype="text/plain">
+            <form id="contactForm" action="mailto:administrador@tecontrato.com" method="POST" enctype="UTF-8">
                 <div class="row align-items-stretch mb-5">
                     <div class="col-md-6">
                         <div class="form-group">
                             <input class="form-control" id="name" type="text" placeholder="Tu nombre *"
-                                required="required" data-validation-required-message="Please enter your name." />
+                                required="required" data-validation-required-message="Please enter your name." name='Nombre' />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="form-group">
                             <input class="form-control" id="email" type="email" placeholder="Tu email *"
-                                required="required"
+                                required="required" name='Correo'
                                 data-validation-required-message="Please enter your email address." />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="form-group mb-md-0">
                             <input class="form-control" id="phone" type="tel" placeholder="Tu teléfono *"
-                                required="required"
+                                required="required" name='Telefono'
                                 data-validation-required-message="Please enter your phone number." />
                             <p class="help-block text-danger"></p>
                         </div>
@@ -418,7 +418,7 @@ $persona = array(
                     <div class="col-md-6">
                         <div class="form-group form-group-textarea mb-md-0">
                             <textarea class="form-control" id="message" placeholder="Escribe un mensaje *"
-                                required="required"
+                                required="required" name='Mensaje'
                                 data-validation-required-message="Please enter a message."></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
@@ -601,7 +601,7 @@ $persona = array(
                                 $contra = $_POST["password1"];
 
                                 $insertarDatos = "INSERT INTO usuario VALUES (NULL,'2','$servicio','$lugar','$nombre','$edad'
-                                ,'$correo','$contra',NULL,NULL, NULL, NULL, NULL, NULL, NULL,0,0,0,'1')";
+                                ,'$correo','$contra',NULL,NULL, NULL, NULL, NULL, NULL, NULL,0,0,0,0,'1')";
                                 include 'conexion.php';
                                 $ejecutarInsertar = mysqli_query($conexion,$insertarDatos);
                                 // session_destroy();
