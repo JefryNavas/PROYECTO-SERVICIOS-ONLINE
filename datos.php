@@ -311,8 +311,8 @@ session_start();
                                         <label for="">
                                             <h4>Años de Experiencia</h4>
                                         </label>
-                                        <input type="text" class="form-control" name="expe"
-                                            placeholder="tus años de experiencia..."
+                                        <input type="number" class="form-control" name="expe"
+                                            placeholder="tus años de experiencia..." min=1 max=25
                                             value="<?php echo $_SESSION['AN_EXPERIENCIA'] ?>">
                                     </div>
                                 </div>
