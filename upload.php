@@ -1,9 +1,11 @@
 <?php
 session_start();
+$id_unico = uniqid();
 $target_dir = "imagenes//fotos_perfil//"; //directorio en el que se subira
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);//se añade el directorio y el nombre del archivo
+$target_file = $target_dir.$id_unico. basename($_FILES["fileToUpload"]["name"]);//se añade el directorio y el nombre del archivo
 $uploadOk = 1;//se añade un valor determinado en 1
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
 // Comprueba si el archivo de imagen es una imagen real o una imagen falsa
 if(isset($_POST["submit"])) {//detecta el boton
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);

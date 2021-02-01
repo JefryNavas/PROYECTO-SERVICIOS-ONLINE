@@ -1,10 +1,9 @@
 <?php
 session_start();
-
 if (isset($_FILES["file"]))
 {
-   $reporte = null;
-   $fotos = array();
+    $reporte = null;
+    $fotos = array();
      for($x=0; $x<count($_FILES["file"]["name"]); $x++)
     {
       $file = $_FILES["file"];
@@ -16,13 +15,13 @@ if (isset($_FILES["file"]))
       $dimensiones = getimagesize($ruta_provisional);
       $width = $dimensiones[0];
       $height = $dimensiones[1];
-      $carpeta = "imagenes//fotos_trabajo//";
+      $carpeta = "imagenes//fotos_formacion//";
 
       if ($tipo != 'image/jpeg' && $tipo != 'image/jpg' && $tipo != 'image/png' && $tipo != 'image/gif')
       {
           $reporte .= "<p style='color: red'>Error $nombre, el archivo no es una imagen.</p>";
       }
-      else if($size > 3024*3024)
+      else if($size > 1024*1024)
       {
           $reporte .= "<p style='color: red'>Error $nombre, el tamaño máximo permitido es 1mb</p>";
       }
@@ -30,29 +29,31 @@ if (isset($_FILES["file"]))
       {
           $reporte .= "<p style='color: red'>Error $nombre, la anchura y la altura máxima permitida es de 500px</p>";
       }
-         else {
+      else if($width < 60 || $height < 60)
+      {
+          $reporte .= "<p style='color: red'>Error $nombre, la anchura y la altura mínima permitida es de 60px</p>";
+      }
+      else
+      {
+          $src = $carpeta.$id_unico.$nombre;
+          move_uploaded_file($ruta_provisional, $src);       
 
-                $src = $carpeta.$id_unico.$nombre;
-
-                        move_uploaded_file($ruta_provisional, $src);       
-                 
-                        array_push($fotos,$id_unico.$nombre);
-                      
+          array_push($fotos,$id_unico.$nombre);
+          echo "<p style='color: blue'>La imagen $nombre ha sido subida con éxito</p>";
       }
     }
+    echo $reporte;
 
-    $nombre_trabajo = $_POST['nombre_trabajo'];
-    $desc_trabajo = $_POST['desc_trabajo'];
+    $desc_formacion = $_POST['desc_formacion'];
     $ID = $_SESSION['ID_PERSONA'];
-
-    $INGRESARTRABAJO = "INSERT INTO trabajos VALUES (null,'$nombre_trabajo','$desc_trabajo','$fotos[0]','$fotos[1]','$fotos[2]','$ID')";
+    $INGRESARFORMACION = "INSERT INTO formacion VALUES (null,'$desc_formacion','$fotos[0]','$fotos[1]','$ID')";
     include 'conexion.php';
-    $ingresar_trabajo = mysqli_query($conexion,$INGRESARTRABAJO);
-        if($ingresar_trabajo == TRUE){
+    $ingresar_formacion = mysqli_query($conexion,$INGRESARFORMACION);
+        if($ingresar_formacion == TRUE){
             
             echo '<script> 
                 alert("Actualización exitosa.");
-                window.location = "trabajos.php";
+                window.location = "formacion.php";
 
             </script>';
         } else {
@@ -60,4 +61,5 @@ if (isset($_FILES["file"]))
                 alert("Error.");
             </script>';
         }
+
 }

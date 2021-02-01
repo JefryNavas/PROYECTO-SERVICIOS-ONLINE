@@ -120,7 +120,7 @@ session_start();
                             <div class="file-upload">
                                 <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_960_720.png"
                                     class="avatar1">
-                                <input type="file" class="file-upload1" name="file[]">
+                                <input type="file" class="file-upload1" id="input" name="file[]"  required>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -142,13 +142,13 @@ session_start();
                             <div class="form-group mt-5 mb-5">
                                 <div class="col-xs-6">
                                     <input type="text" class="form-control" name="nombre_trabajo"
-                                        placeholder="Nombre del trabajo..." value="">
+                                        placeholder="Nombre del trabajo..." required>
                                 </div>
                             </div>
                             <div class="form-group mt-5 mb-5">
                                 <div class="col-xs-6">
                                     <textarea rows="8" cols="20" class="form-control" name="desc_trabajo"
-                                        placeholder="Una descripción del trabajo..."></textarea>
+                                        placeholder="Una descripción del trabajo..."  required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@ session_start();
 
                         <div class="form-group">
 
-                            <button type="submit" class="btn btn-md btn-success" name=""><i
+                            <button type="submit" class="btn btn-md btn-success ml-5" name=""><i
                                     class="fa fa-check-square"></i>
                                 Guardar</button>
                             <button class="btn btn-md" type="reset"><i class="fas fa-redo"></i>
@@ -188,18 +188,48 @@ session_start();
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>
+                        <?php
+                        $ID = $_SESSION['ID_PERSONA'];
+                        $query = "SELECT NOMBRE_TRABAJO,DESCRIPCION,ID_TRABAJO FROM TRABAJOS WHERE ID_PERSONA = '$ID'";
+                        include 'conexion.php';
+                        $llenarTrabajo= mysqli_query($conexion,$query);
+                        $result = mysqli_num_rows($llenarTrabajo);
+                        if($result >0){
+                            while($data = mysqli_fetch_array($llenarTrabajo)){
+                                ?>   
+                                <tr>
+                                            <td><?php echo $data[0] ?></td>
+                                            <td><?php echo $data[1] ?></td>
+                                            <td>
+                                            <form method="post">
+                                            <button type="submit" class="bg-dark text-warning"  name="btnBorrar" value="<?php echo $data[2]; ?>"><i class="fas fa-trash-alt text-warning"></i> Borrar</button>
+                                            
+                                            </form>
+                                            
+                                            </td>
+                                        </tr>
+                                    <?php    
 
-                                </td>
-                                <td>
+                                        }
+                                    }
+                                    ?>
+                                    <?php
+                                            if (isset($_POST['btnBorrar'])) {
+                                                $borrar_id = $_POST['btnBorrar'];
+                                                $borrar = "DELETE FROM TRABAJOS WHERE ID_TRABAJO = '$borrar_id'";
+                                                include "conexion.php";
+                                                $ejecutar = mysqli_query($conexion, $borrar);
+                                                if ($ejecutar) {
+                                                    echo '<script> 
 
-                                </td>
-                                <td>
-                                    <a href="http://"><i class="fas fa-trash-alt"></i> Eliminar</a>
-                                </td>
 
-                            </tr>
+                                                    alert("Se ha eliminado correctamente.");
+                                                    window.location = "trabajos.php";
+            
+                                                </script>';
+                                                }
+                                            }
+                                        ?>
                         </tbody>
                     </table>
                 </div>

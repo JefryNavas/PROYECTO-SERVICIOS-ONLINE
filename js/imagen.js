@@ -1,65 +1,63 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    
-    var readURL = function(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('.avatar').attr('src', e.target.result);
-            }
-    
-            reader.readAsDataURL(input.files[0]);
+
+    var input = document.getElementById('input');
+    input.addEventListener('input', function (evt) {
+        this.setCustomValidity('');
+    });
+    input.addEventListener('invalid', function (evt) {
+        // Required
+        if (this.validity.valueMissing) {
+            this.setCustomValidity('Seleccione almenos una imagen!');
         }
-    }
-    
-
-    $(".file-upload").on('change', function(){
-        readURL(this);
     });
 
 
-    var readURL1 = function(input) {
+   
+
+
+    var readURL1 = function (input) {
         if (input.files && input.files[0]) {
             let reader = new FileReader();
 
             reader.onload = function (e) {
                 $('.avatar1').attr('src', e.target.result);
             }
-    
+
             reader.readAsDataURL(input.files[0]);
         }
     }
-    $(".file-upload1").on('change', function(){
+    $(".file-upload1").on('change', function () {
         readURL1(this);
     });
 
-    var readURL2 = function(input) {
+    var readURL2 = function (input) {
         if (input.files && input.files[0]) {
             let reader = new FileReader();
 
             reader.onload = function (e) {
                 $('.avatar2').attr('src', e.target.result);
             }
-    
+
             reader.readAsDataURL(input.files[0]);
         }
     }
-    $(".file-upload2").on('change', function(){
+    $(".file-upload2").on('change', function () {
         readURL2(this);
     });
-    var readURL3 = function(input) {
+    var readURL3 = function (input) {
         if (input.files && input.files[0]) {
             let reader = new FileReader();
 
             reader.onload = function (e) {
                 $('.avatar3').attr('src', e.target.result);
             }
-    
+
             reader.readAsDataURL(input.files[0]);
         }
     }
-    $(".file-upload3").on('change', function(){
+    $(".file-upload3").on('change', function () {
         readURL3(this);
     });
 });

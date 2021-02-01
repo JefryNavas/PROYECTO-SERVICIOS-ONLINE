@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!doctype html>
 <html lang="es">
 
@@ -18,6 +23,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
         crossorigin="anonymous"></script>
+
 
 
     <style>
@@ -97,7 +103,7 @@
 
     <div class="container-fluid bg-dark pt-5 ">
         <div class="container text-white pt-5 pb-1">
-            <h1 class="display-4 mb-3"><b>Trabajos</b></h1>
+            <h1 class="display-4 mb-3"><b>Formación</b></h1>
 
         </div>
 
@@ -109,41 +115,28 @@
         <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="container mt-3">
                 <div class="display-4 mt-3">Subir Imagenes</div>
-                <form action="upload2.php" method="POST" enctype="multipart/form-data">
+                <form action="upload3.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="file-upload">
                                 <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_960_720.png"
                                     class="avatar1">
-                                <input type="file" class="file-upload1" name="file[]">
+                                <input type="file" class="file-upload1" id="input" name="file[]"  required>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="file-upload">
                                 <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_960_720.png"
                                     class="avatar2">
                                 <input type="file" class="file-upload2" name="file[]" id="fileToUpload">
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="file-upload">
-                                <img src="https://cdn.pixabay.com/photo/2016/01/03/00/43/upload-1118929_960_720.png"
-                                    class="avatar3">
-                                <input type="file" class="file-upload3" name="file[]" id="fileToUpload">
-                            </div>
-                        </div>
                         <div class="col-sm-12">
                             <div class="display-4">Descripción del trabajo</div>
                             <div class="form-group mt-5 mb-5">
                                 <div class="col-xs-6">
-                                    <input type="text" class="form-control" name="facebook_"
-                                        placeholder="tu perfil facebook..." value="Nombre del trabajo">
-                                </div>
-                            </div>
-                            <div class="form-group mt-5 mb-5">
-                                <div class="col-xs-6">
-                                    <textarea rows="8" cols="20" class="form-control" name="desc" id="desc"
-                                        placeholder="una descripción personal tuya...">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam eos porro ipsam magni soluta quis tempora at provident possimus? Similique.</textarea>
+                                    <textarea rows="8" cols="20" class="form-control" name="desc_formacion"
+                                        placeholder="Una descripción de la Formación..."  required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +144,7 @@
 
                         <div class="form-group">
 
-                            <button type="submit" class="btn btn-md btn-success" name=""><i
+                            <button type="submit" class="btn btn-md btn-success ml-5" name=""><i
                                     class="fa fa-check-square"></i>
                                 Guardar</button>
                             <button class="btn btn-md" type="reset"><i class="fas fa-redo"></i>
@@ -169,32 +162,60 @@
         <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="container mt-3">
                 <p class="display-4">
-                    Trabajos Guardados
+                    Formación Guardada
                 </p>
 
                 <div class="table-responsive table-striped">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Nombre</th>
                                 <th>Descripción</th>
-                                <th>Eliminar</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>
+                        <?php
+                        $ID = $_SESSION['ID_PERSONA'];
+                        $query = "SELECT DESCRIPCION,ID_FORMACION FROM FORMACION WHERE ID_PERSONA = '$ID'";
+                        include 'conexion.php';
+                        $llenarFormacion = mysqli_query($conexion,$query);
+                        $result = mysqli_num_rows($llenarFormacion);
+                        if($result >0){
+                            while($data = mysqli_fetch_array($llenarFormacion)){
+                                ?>   
+                                <tr>
+                                            <td><?php echo $data[0] ?></td>
+                                            <td>
+                                            <form method="post">
+                                            <button type="submit" class="bg-dark text-warning"  name="btnBorrar" value="<?php echo $data[1]; ?>"><i class="fas fa-trash-alt text-warning"></i> Borrar</button>
+                                            
+                                            </form>
+                                            
+                                            </td>
+                                        </tr>
+                                    <?php    
 
-                                </td>
-                                <td>
+                                        }
+                                    }
+                                    ?>
+                                    <?php
+                                            if (isset($_POST['btnBorrar'])) {
+                                                $borrar_id = $_POST['btnBorrar'];
+                                                $borrar = "DELETE FROM formacion WHERE ID_FORMACION = '$borrar_id'";
+                                                include "conexion.php";
+                                                $ejecutar = mysqli_query($conexion, $borrar);
+                                                if ($ejecutar) {
+                                                    echo '<script> 
 
-                                </td>
-                                <td>
-                                    <a href="http://"><i class="fas fa-trash-alt"></i> Eliminar</a>
-                                </td>
 
-                            </tr>
+                                                    alert("Se ha eliminado correctamente.");
+                                                    window.location = "formacion.php";
+            
+                                                </script>';
+                                                }
+                                            }
+                                        ?>
                         </tbody>
                     </table>
                 </div>
