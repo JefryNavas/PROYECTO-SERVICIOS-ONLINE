@@ -144,7 +144,7 @@ session_start();
                                     <tbody>
                                     <?php
                                     $query2 = "SELECT NOMBRE,s.NOMBRE_SERVICIO,l.nombre_lugar, EDAD, ID_PERSONA, NUM_VISITAS,NUM_REDES FROM `usuario`, servicios s, lugar l WHERE usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR
-                                     and usuario.NOMBRE != 'ADMINISTRADOR DEL SISTEMA'and ESTATUS = 1 ORDER BY NUM_VISITAS DESC LIMIT 5";
+                                     and usuario.NOMBRE != 'ADMINISTRADOR DEL SISTEMA'and ESTATUS = 1 ORDER BY NUM_VISITAS DESC, NUM_REDES DESC LIMIT 5";
                                     $masVisitados = mysqli_query($conexion,$query2);
                                     $result2 = mysqli_num_rows($masVisitados);
                                     if($result2 >0){
