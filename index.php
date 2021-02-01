@@ -224,7 +224,7 @@ $persona = array(
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Servicios</h2>
-                <h3 class="section-subheading text-muted">Mira los servicios que nuestros usuarios capacitados te pueden ofrecer.</h3>
+                <h3 class="section-subheading text-muted">Mira los servicios que nuestros usuarios capacitados te pueden ofrecer..</h3>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mb-4">
@@ -391,7 +391,7 @@ $persona = array(
                 <h2 class="section-heading text-uppercase">Contáctanos</h2>
                 <h3 class="section-subheading text-muted">_</h3>
             </div>
-            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+            <form id="contactForm" action="mailto:administrador@tecontrato.com" method="POST" enctype="text/plain">
                 <div class="row align-items-stretch mb-5">
                     <div class="col-md-6">
                         <div class="form-group">

@@ -48,7 +48,7 @@ include ('conexion.php');
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" id="calificarusuario" href="">calificar
                             usuario</a></li>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" id="contratarservicio" href="">
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger"  href="clientes.php">
                                 Servicios</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="top.php">TOP 10</a>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="sugerencias.html">Sugerencias</a>

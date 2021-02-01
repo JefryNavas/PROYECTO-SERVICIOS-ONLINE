@@ -12,12 +12,13 @@ $(document).ready(function () {
     $('#expb').hide();
     $('#expm').hide();
     $('#expa').hide();
+    $('#calificar').hide();
 
     
     $('#contratarservicio').click(function(){
+        $('#calificar').hide();
         $('#alba').hide();
         $('#contratar').show();
-        $('#alba').hide();
         $('#carp').hide();
         $('#plom').hide();
         $('#trans').hide();
