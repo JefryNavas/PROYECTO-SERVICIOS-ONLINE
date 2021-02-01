@@ -51,8 +51,8 @@ session_start();
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                <a class="nav-link" href="layout-static.html">Navegación</a>
+                                <a class="nav-link" href="layout-sidenav-light.html">Barra de Navegación</a>
                             </nav>
                         </div>
 
@@ -88,9 +88,14 @@ session_start();
                         </div>
                         <div class="col-sm-6 col-md-3">
                             <div class="card bg-warning text-white mb-4">
-                                <div class="card-body text-uppercase text-center">TOTal de clicks a Mensajería interna</div>
+                                <div class="card-body text-uppercase text-center">TOTal de clicks a Mensajería interna (WhatsApp)</div>
                                 <div class="card-footer text-center">
-                                    1234
+                                <?php
+                                    $query_numero2 = mysqli_query($conexion,"SELECT SUM(NUM_SMS) FROM usuario");
+                                    $numero2 = mysqli_fetch_array($query_numero2);
+                                    ?>
+                                    <?php echo $numero2[0] ?>
+                                   
                                 </div>
                             </div>
                         </div>

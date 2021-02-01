@@ -403,14 +403,16 @@ session_start();
                                 $edad = $_POST["edad"];
                                 $telefono = $_POST["phone"];
                                 $lugar = $_POST["lugar"];
+                                $extencion = '593';
                                 $celular = $_POST["mobile"];
+                                $extencion .=$celular;
                                 $descripcion = $_POST["desc"];
                                 $ID = $_SESSION['ID_PERSONA'];
                                 $ACTUALIZARDatos = "UPDATE usuario SET NOMBRE='$nombre',
                                                                      EDAD='$edad',
                                                                      TELEFONO='$telefono',
                                                                      ID_LUGAR='$lugar',
-                                                                     CELULAR='$celular',
+                                                                     CELULAR='$extencion',
                                                                      DESCRIPCION='$descripcion'
                                                                      WHERE ID_PERSONA ='$ID'";
                                 include 'conexion.php';

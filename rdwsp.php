@@ -1,8 +1,6 @@
 <?php
 include ('conexion.php'); 
 
-$query = "INSERT INTO mails VALUES(NULL,1)";
-$guardarMail = mysqli_query($conexion,$query);
 
 if(empty($_REQUEST['id'])){
     header('location: perfil.php');

@@ -16,7 +16,7 @@ if (isset($_FILES["file"]))
       $dimensiones = getimagesize($ruta_provisional);
       $width = $dimensiones[0];
       $height = $dimensiones[1];
-      $carpeta = "imagenes//fotos_trabajo//";
+      $carpeta = "imagenes/fotos_trabajo/";
 
       if ($tipo != 'image/jpeg' && $tipo != 'image/jpg' && $tipo != 'image/png' && $tipo != 'image/gif')
       {

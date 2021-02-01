@@ -134,13 +134,7 @@ if(empty($_REQUEST['id'])){
                                 <h6>
                                     <?php echo $row['NOMBRE_SERVICIO'] ?>
                                 </h6>
-                                <a class="btn btn-dark btn-social mx-2" href="mailto:
-                <?php echo $mail_usuario["info"]["correo"]; ?>
-                                    ?subject=
-                                    <?php echo $mail_usuario["info"]["asunto"]; ?>
-                                    &body=
-                                    <?php echo $mail_usuario["info"]["msg"]; ?>
-                                    "><i class="fas fa-envelope-open-text" target="_blank"></i>
+                                <a class="btn btn-dark btn-social mx-2" href="rdmail.php?id=<?php echo $idusuario ?>"><i class="fas fa-envelope-open-text" target="_blank"></i>
                                 </a>
                                 <a class="btn btn-dark btn-social mx-2" href="redireccion.php?id=<?php echo $idusuario ?>"><i
                                         class="fab fa-facebook-f" target="_blank"></i></a>

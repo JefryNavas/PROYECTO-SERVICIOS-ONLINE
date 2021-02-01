@@ -41,7 +41,7 @@ if(!empty($_SESSION['active'])){
             $alert = "Ingrese su usuario y su clave";
         }
 
-        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,PSWD,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION,NUM_VISITAS,NUM_REDES,NUM_SMS 
+        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,PSWD,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION,NUM_VISITAS,NUM_REDES,NUM_SMS,NUM_COR
         FROM usuario, servicios s,lugar l
         where CORREO= '$loginus' AND
         PSWD= '$loginpass' AND usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR  AND ESTATUS = 1";
@@ -73,6 +73,7 @@ if(!empty($_SESSION['active'])){
             $_SESSION['NUM_VISITAS'] = $row['NUM_VISITAS'];
             $_SESSION['NUM_REDES'] = $row['NUM_REDES'];
             $_SESSION['NUM_SMS'] = $row['NUM_SMS'];
+            $_SESSION['NUM_COR'] = $row['NUM_COR'];
 
             if($_SESSION['ID_TIPO'] == 1){
                 header("location: dashboard.php");
