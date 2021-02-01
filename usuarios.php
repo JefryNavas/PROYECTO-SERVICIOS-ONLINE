@@ -129,6 +129,9 @@ $mail_usuario = array(
                                 <h6>
                                     <?php echo $_SESSION['NUM_REDES'] ?> Persona(s) Han visto tus Redes Sociales. 
                                 </h6>
+                                <h6>
+                                    <?php echo $_SESSION['NUM_SMS'] ?> Persona(s) Te contactaron por WhatsApp. 
+                                </h6>
                                 <a class="btn btn-dark btn-social mx-2 mt-3" href="mailto:
                                     <?php echo $mail_usuario["info"]["correo"]; ?>
                                     ?subject=
@@ -142,6 +145,10 @@ $mail_usuario = array(
                                         target="_blank"></i></a>
                                 <a class="btn btn-dark btn-social mx-2 mt-3"
                                     href="<?php echo $_SESSION['INSTAGRAM'] ?>"><i class="fab fa-instagram-square"
+                                        target="_blank"></i></a>
+                                        <a class="btn btn-dark btn-social mx-2 mt-3"
+                                    href="https://api.whatsapp.com/send?phone=<?php echo $_SESSION['CELULAR'] ?>&text=Este es tu número en TeContrato.com">
+                                    <i class="fab fa-whatsapp"
                                         target="_blank"></i></a>
                             </div>
                         </div>

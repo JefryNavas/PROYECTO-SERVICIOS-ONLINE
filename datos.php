@@ -236,7 +236,7 @@ session_start();
                                 <div class="form-group">
                                     <div class="col-xs-6">
                                         <label for="mobile">
-                                            <h4>Celular</h4>
+                                            <h4>Celular (WhatsApp)</h4>
                                         </label>
                                         <input type="text" class="form-control" name="mobile" id="mobile"
                                             placeholder="tu número celular..." value="<?php echo $_SESSION['CELULAR'] 

@@ -41,7 +41,8 @@ if(!empty($_SESSION['active'])){
             $alert = "Ingrese su usuario y su clave";
         }
 
-        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,PSWD,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION,NUM_VISITAS,NUM_REDES FROM usuario, servicios s,lugar l
+        $buscarLogin = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,PSWD,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION,NUM_VISITAS,NUM_REDES,NUM_SMS 
+        FROM usuario, servicios s,lugar l
         where CORREO= '$loginus' AND
         PSWD= '$loginpass' AND usuario.ID_SERVICIOS = s.ID_SERVICIOS AND usuario.ID_LUGAR = l.ID_LUGAR  AND ESTATUS = 1";
         
@@ -71,6 +72,7 @@ if(!empty($_SESSION['active'])){
             $_SESSION['DESCRIPCION'] = $row['DESCRIPCION'];
             $_SESSION['NUM_VISITAS'] = $row['NUM_VISITAS'];
             $_SESSION['NUM_REDES'] = $row['NUM_REDES'];
+            $_SESSION['NUM_SMS'] = $row['NUM_SMS'];
 
             if($_SESSION['ID_TIPO'] == 1){
                 header("location: dashboard.php");
@@ -598,7 +600,7 @@ $persona = array(
                                 $contra = $_POST["password1"];
 
                                 $insertarDatos = "INSERT INTO usuario VALUES (NULL,'2','$servicio','$lugar','$nombre','$edad'
-                                ,'$correo','$contra',NULL,NULL, NULL, NULL, NULL, NULL, NULL,0,0,'1')";
+                                ,'$correo','$contra',NULL,NULL, NULL, NULL, NULL, NULL, NULL,0,0,0,'1')";
                                 include 'conexion.php';
                                 $ejecutarInsertar = mysqli_query($conexion,$insertarDatos);
                                 // session_destroy();

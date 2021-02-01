@@ -146,6 +146,8 @@ if(empty($_REQUEST['id'])){
                                         class="fab fa-facebook-f" target="_blank"></i></a>
                                 <a class="btn btn-dark btn-social mx-2" href="redirect2.php?id=<?php echo $idusuario ?>"><i
                                         class="fab fa-instagram-square" target="_blank"></i></a>
+                                <a class="btn btn-dark btn-social mx-2" href="rdwsp.php?id=<?php echo $idusuario ?>"><i
+                                        class="fab fa-whatsapp" target="_blank"></i></a>
                             </div>
                         </div>
                     </div>
