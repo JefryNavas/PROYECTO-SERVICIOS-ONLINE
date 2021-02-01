@@ -157,7 +157,7 @@ include ('conexion.php');
                 </div>
                 <div class="col-sm-12 col-md-8 col-lg-9">
                     <h1 class="display-4 text-center"><b>Contrata un servicio</b></h1>
-                    <div class="card-deck p-4 pt-5">
+                    <div class="card-deck p-4 pt-5 " style="color: white;">
                         <div class="row">
                             <?php
                             $query = "SELECT ID_TIPO, s.NOMBRE_SERVICIO,s.ID_SERVICIOS,l.ID_LUGAR,l.nombre_lugar,NOMBRE,CORREO,EDAD,TELEFONO,CELULAR,AN_EXPERIENCIA,FOTO,FACEBOOK,INSTAGRAM,ID_PERSONA,DESCRIPCION FROM usuario, servicios s,lugar l 
@@ -170,7 +170,7 @@ include ('conexion.php');
                                 while($data = mysqli_fetch_array($llenarPaneles)){
                                     ?>
                             <div class="col-md-6 col-lg-4 col-12 mb-5">
-                                <div class="card align-items-center pt-4">
+                                <div class="card align-items-center pt-4 bg-dark">
                                     <img class="rounded-circle" <?php if ($data['FOTO']==null) {
                                         $link="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" ; } else {
                                         $link=$data['FOTO']; } ?>
