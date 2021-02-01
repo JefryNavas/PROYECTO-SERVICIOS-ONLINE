@@ -20,7 +20,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/estilos.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
         crossorigin="anonymous"></script>
 
 
@@ -105,7 +105,8 @@ session_start();
                         <img src="<?php echo $link ?>"
                             class="avatar mx-auto rounded-circle" width="90%" alt="avatar">
                         <input type="file" class="text-center center-block file-upload" name="fileToUpload" id="fileToUpload">
-                        <input type="submit" value="Cargar Imagen" name="cargar_imagen">
+                        <button type="submit" class="btn btn-md btn-success" name="cargar_imagen"><i class="fas fa-cloud-upload-alt"></i>
+                                            Subir</button>
                     </form>
 
                 </div>
