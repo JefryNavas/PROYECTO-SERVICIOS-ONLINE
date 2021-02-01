@@ -38,7 +38,7 @@ if (isset($_FILES["file"]))
           $src = $carpeta.$id_unico.$nombre;
           move_uploaded_file($ruta_provisional, $src);       
 
-          array_push($fotos,$id_unico.$nombre);
+          array_push($fotos,$carpeta.$id_unico.$nombre);
           echo "<p style='color: blue'>La imagen $nombre ha sido subida con éxito</p>";
       }
     }
