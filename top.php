@@ -88,7 +88,7 @@ include ('conexion.php');
             </div>
 
             <div class="row">
-                <div class="col-sm-12 col-md-8 col-lg-9">
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     <h1 class="display-4 text-center"><b>CONOCE NUESTRO TOP 10</b></h1>
                     <div class="card-deck p-4 pt-5">
                         <div class="row">
@@ -104,60 +104,60 @@ include ('conexion.php');
                                 
                                 while($data = mysqli_fetch_array($llenarPaneles)){
                                     ?>
-                                <div class="col-md-6 col-lg-4 col-12 mb-5">
-                                <div class="card align-items-center pt-4">
-                                    <img class="rounded-circle"
-                                    <?php
-                                    if ($data['FOTO'] == null) {
-                                    $link = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
-                                     } else {
-                                        $link = $data['FOTO'];
-                                     }
-                                    ?>
-                                        src="<?php echo $link ?>"
-                                        alt="Generic placeholder image" width="140" height="140">
+                                <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
+                                    <div class="card align-items-center pt-4">
+                                        <img class="rounded-circle"
+                                        <?php
+                                        if ($data['FOTO'] == null) {
+                                        $link = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
+                                        } else {
+                                            $link = $data['FOTO'];
+                                        }
+                                        ?>
+                                            src="<?php echo $link ?>"
+                                            alt="Generic placeholder image" width="140" height="140">
 
-                                    <div class="card-body text-justify">
-                                        <h5 class="card-title"><?php echo $data['NOMBRE'] ?></h5>
-                                        <p class="card-text">
-                                            <b>Servicio:  </b><?php echo $data['NOMBRE_SERVICIO'] ?><br>
-                                            <b>Ciudad:  </b><?php echo $data['nombre_lugar'] ?> <br>
+                                        <div class="card-body text-justify">
+                                            <h5 class="card-title"><?php echo $data['NOMBRE'] ?></h5>
+                                            <p class="card-text">
+                                                <b>Servicio:  </b><?php echo $data['NOMBRE_SERVICIO'] ?><br>
+                                                <b>Ciudad:  </b><?php echo $data['nombre_lugar'] ?> <br>
 
-                                            <?php 
-                                            if($data['DESCRIPCION']==null){
-                                                echo "El usuario no ha agregado su descripción personal";
-                                            }else{
-                                                echo $data['DESCRIPCION'];
-                                            }
-                                            ?>
-                                        </p>
-                                        <div class="text-center">
-                                        <p class="card-text">
-                                            <b>Visitas a Perfil:  </b><?php echo $data['NUM_VISITAS'] ?><br>
-                                            <b>Vistas Redes Sociales:  </b><?php echo $data['NUM_REDES'] ?> <br>
-                                        </p>
-                                        
-                                            <div class="row pt-3">
-                                                <div class="col-md-6">
-                                                    Calificación:
-                                                </div>
-                                                <div class="col-md-6">
-                                                <b>
-                                                <p>
-                                                <?php
-                                                echo $data['PROM'];
-                                                echo " / 5"   
+                                                <?php 
+                                                if($data['DESCRIPCION']==null){
+                                                    echo "El usuario no ha agregado su descripción personal";
+                                                }else{
+                                                    echo $data['DESCRIPCION'];
+                                                }
                                                 ?>
-                                                </p>
-                                                </b>
+                                            </p>
+                                            <div class="text-center">
+                                            <p class="card-text">
+                                                <b>Visitas a Perfil:  </b><?php echo $data['NUM_VISITAS'] ?><br>
+                                                <b>Vistas Redes Sociales:  </b><?php echo $data['NUM_REDES'] ?> <br>
+                                            </p>
+                                            
+                                                <div class="row pt-3">
+                                                    <div class="col-md-6">
+                                                        Calificación:
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                    <b>
+                                                    <p>
+                                                    <?php
+                                                    echo $data['PROM'];
+                                                    echo " / 5"   
+                                                    ?>
+                                                    </p>
+                                                    </b>
+                                                    </div>
                                                 </div>
+                                                <a class="btn btn-primary " style="color: black;" href="perfil.php?id=<?php echo $data['ID_PERSONA'];?>">Visitar Perfil</a>
                                             </div>
-                                            <a class="btn btn-primary " style="color: black;" href="perfil.php?id=<?php echo $data['ID_PERSONA'];?>">Visitar Perfil</a>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
-                            </div>
 
                                     
                             <?php        
