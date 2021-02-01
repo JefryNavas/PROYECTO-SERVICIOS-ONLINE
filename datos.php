@@ -94,7 +94,8 @@ session_start();
             <div class="col-sm-12 col-md-4 col-lg-3">
                 <div class="text-center">
 
-                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <div class="file-upload">
                             <?php
                                 if ($_SESSION['FOTO'] == null) {
                                     $link = "http://ssl.gstatic.com/accounts/ui/avatar_2x.png";
@@ -103,8 +104,9 @@ session_start();
                                 }
                             ?>
                         <img src="<?php echo $link ?>"
-                            class="avatar mx-auto rounded-circle" width="90%" alt="avatar">
+                            class="avatar mx-auto rounded-circle" width="90%">
                         <input type="file" class="text-center center-block file-upload" name="fileToUpload" id="fileToUpload">
+                        </div>
                         <button type="submit" class="btn btn-md btn-success" name="cargar_imagen"><i class="fas fa-cloud-upload-alt"></i>
                                             Subir</button>
                     </form>
@@ -564,7 +566,7 @@ session_start();
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
 <script src="js/scripts.js"></script>
-<script src="js/imagen.js"></script>
+<script src="js/imgperfil.js"></script>
 <script src="js/usuarios.js"></script>
 
 </html>
