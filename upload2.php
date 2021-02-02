@@ -20,15 +20,15 @@ if (isset($_FILES["file"]))
 
       if ($tipo != 'image/jpeg' && $tipo != 'image/jpg' && $tipo != 'image/png' && $tipo != 'image/gif')
       {
-          $reporte .= "<p style='color: red'>Error $nombre, el archivo no es una imagen.</p>";
+          
       }
       else if($size > 3024*3024)
       {
-          $reporte .= "<p style='color: red'>Error $nombre, el tamaño máximo permitido es 1mb</p>";
+         
       }
       else if($width > 3000 || $height > 3000)
       {
-          $reporte .= "<p style='color: red'>Error $nombre, la anchura y la altura máxima permitida es de 500px</p>";
+          
       }
          else {
 
