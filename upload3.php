@@ -19,19 +19,19 @@ if (isset($_FILES["file"]))
 
       if ($tipo != 'image/jpeg' && $tipo != 'image/jpg' && $tipo != 'image/png' && $tipo != 'image/gif')
       {
-          $reporte .= "<p style='color: red'>Error $nombre, el archivo no es una imagen.</p>";
+          
       }
       else if($size > 1024*1024)
       {
-          $reporte .= "<p style='color: red'>Error $nombre, el tamaño máximo permitido es 1mb</p>";
+          
       }
       else if($width > 3000 || $height > 3000)
       {
-          $reporte .= "<p style='color: red'>Error $nombre, la anchura y la altura máxima permitida es de 500px</p>";
+          
       }
       else if($width < 60 || $height < 60)
       {
-          $reporte .= "<p style='color: red'>Error $nombre, la anchura y la altura mínima permitida es de 60px</p>";
+          
       }
       else
       {
@@ -39,7 +39,6 @@ if (isset($_FILES["file"]))
           move_uploaded_file($ruta_provisional, $src);       
 
           array_push($fotos,$carpeta.$id_unico.$nombre);
-          echo "<p style='color: blue'>La imagen $nombre ha sido subida con éxito</p>";
       }
     }
     echo $reporte;
