@@ -223,7 +223,7 @@ $mail_usuario = array(
                     <li class="nav-item">
                         <a class="nav-link active" href="#studio" role="tab" data-toggle="tab" id="experienciabtn">
                             <i class="fas fa-brain"></i>
-                            Experiencia
+                            Formación
                         </a>
                     </li>
                     <li class="nav-item">
@@ -242,35 +242,65 @@ $mail_usuario = array(
                         <div class="tab-content tab-space">
                             <div class="tab-pane active gallery" id="studio">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80"
-                                            class="rounded">
-                                        <img src="https://images.unsplash.com/photo-1528249227670-9ba48616014f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=66b8e7db17b83084f16fdeadfc93b95b&auto=format&fit=crop&w=357&q=80"
-                                            class="rounded">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img src="https://images.unsplash.com/photo-1521341057461-6eb5f40b07ab?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=72da2f550f8cbd0ec252ad6fb89c96b2&auto=format&fit=crop&w=334&q=80"
-                                            class="rounded">
-                                        <img src="https://images.unsplash.com/photo-1506667527953-22eca67dd919?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6326214b7ce18d74dde5e88db4a12dd5&auto=format&fit=crop&w=750&q=80"
-                                            class="rounded">
-                                    </div>
+                                <?php
+                                        $ID = $_SESSION['ID_PERSONA'];
+                                        $query4 = "SELECT f.FOTO1,f.FOTO2 FROM FORMACION f,USUARIO U WHERE f.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
+                                        include "conexion.php";
+                                        $IMGS_F = mysqli_query($conexion,$query4);
+                                        $result = mysqli_num_rows($IMGS_F);
+                                            if($result >0){
+                                                while($data4 = mysqli_fetch_array($IMGS_F)){    
+                                        ?>
+                                            <div class="col-md-6">
+                                                <img src="<?php echo $data4[0] ?>"
+                                                    class="rounded">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="<?php echo $data4[1] ?>"
+                                                    class="rounded">
+                                            </div>
+                                            <?php    
+
+                                   
+                                        }
+                                }else {
+                                    echo "<br class='mt-5'><h5 class='descripcion mt-5'>No hay imagenes</h5>";
+                                }
+                                ?>
+
                                 </div>
                             </div>
                             <div class="tab-pane text-center gallery" id="works">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                <?php
+                                        $ID = $_SESSION['ID_PERSONA'];
+                                        $query5 = "SELECT t.FOTO1,t.FOTO2,t.FOTO3 FROM TRABAJOS t,USUARIO U WHERE t.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
+                                        include "conexion.php";
+                                        $IMGS_T = mysqli_query($conexion,$query5);
+                                        $result5 = mysqli_num_rows($IMGS_T);
+                                            if($result5 >0){
+                                                while($data5 = mysqli_fetch_array($IMGS_T)){    
+                                        ?>
+                                            <div class="col-md-6">
+                                                <img src="<?php echo $data5[0] ?>"
+                                                    class="rounded">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="<?php echo $data5[1] ?>"
+                                                    class="rounded">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="<?php echo $data5[2] ?>"
+                                                    class="rounded">
+                                            </div>
+                                            <?php    
 
-                                        <img src="https://images.unsplash.com/photo-1506667527953-22eca67dd919?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6326214b7ce18d74dde5e88db4a12dd5&auto=format&fit=crop&w=750&q=80"
-                                            class="rounded">
-                                        <img src="https://images.unsplash.com/photo-1505784045224-1247b2b29cf3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec2bdc92a9687b6af5089b335691830e&auto=format&fit=crop&w=750&q=80"
-                                            class="rounded">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img src="https://images.unsplash.com/photo-1504346466600-714572c4b726?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6754ded479383b7e3144de310fa88277&auto=format&fit=crop&w=750&q=80"
-                                            class="rounded">
-                                        <img src="https://images.unsplash.com/photo-1494028698538-2cd52a400b17?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83bf0e71786922a80c420c17b664a1f5&auto=format&fit=crop&w=334&q=80"
-                                            class="rounded">
-                                    </div>
+                                   
+                                        }
+                                }else {
+                                    echo "<br class='mt-5'><h5 class='descripcion mt-5'>No hay imagenes</h5>";
+                                }
+                                ?>
                                 </div>
                             </div>
 
@@ -281,44 +311,70 @@ $mail_usuario = array(
                 <div class="col-sm-6 col-md-6 col-lg-5 mt-5 mr-auto">
                     <br>
                     <div class="container-fluid text-justify" id="experiencia">
-                        <p class="description">
-                            Experiencia 1
-                            <br>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis adipisci maiores vel tempore
-                            ab
-                            officiis omnis laborum! Molestias earum pariatur nobis, ullam non, consequuntur fugit, id
-                            eligendi possimus hic magnam.
+                        <h3 class="description">FORMACIÓN</h3>
+                        <?php
+                        $ID = $_SESSION['ID_PERSONA'];
+                        $query = "SELECT f.DESCRIPCION FROM FORMACION f,USUARIO U WHERE f.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
+                        include "conexion.php";
+                        $DESC_F = mysqli_query($conexion,$query);
+                        $result = mysqli_num_rows($DESC_F);
+                            if($result >0){
+                                while($data2 = mysqli_fetch_array($DESC_F)){    
+                                    ?>
 
-                        </p>
-                        <p class="description">
-                            Experiencia 2
-                            <br>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis adipisci maiores vel tempore
-                            ab
-                            officiis omnis laborum! Molestias earum pariatur nobis, ullam non, consequuntur fugit, id
-                            eligendi possimus hic magnam.
+                                    <p class="description">
+                                        <ul class="description">
+                                            <li>
+                                            <?php echo $data2[0] ?>
+                                            </li>
+                                        </ul>
+                                        
+                                    </p>
 
-                        </p>
+                                    <?php    
+                                        }
+                                } else {
+                                    echo "<br><h5 class='descripcion'>Sin Formación</h5>";
+                                }
+                                ?>
                     </div>
-                    <div class="container-fluid text-justify" style="display: none;" id="trabajos_realizados">
-                        <p class="description">
-                            Trabajo 1
-                            <br>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis adipisci maiores vel tempore
-                            ab
-                            officiis omnis laborum! Molestias earum pariatur nobis, ullam non, consequuntur fugit, id
-                            eligendi possimus hic magnam.
+                    <div class="container-fluid" style="display: none;" id="trabajos_realizados">
+                    <h3 class="description">TRABAJOS</h3>
+                    <?php
+                        $ID = $_SESSION['ID_PERSONA'];
+                        $query2 = "SELECT T.NOMBRE_TRABAJO,T.DESCRIPCION FROM TRABAJOS T,USUARIO U WHERE T.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
+                        include "conexion.php";
+                        $DESC_T = mysqli_query($conexion,$query2);
+                        $result2 = mysqli_num_rows($DESC_T);
+                            if($result2 >0){
+                                $i = 1;
+                                while($data3 = mysqli_fetch_array($DESC_T)){    
+                                    ?>
+                                    <p class="description">
+                                    NOMBRE DEL TRABAJO: <?php echo $data3[0] ?><br>
+                                        <ul>
+                                            
+                                            <li>
+                                            
+                                        <p class="description">
+                                            DESCRIPCIÓN: 
+                                        <?php echo $data3[1] ?>
+                                        </p> 
+                                        
+                                            </li>
+                                        </ul>
+                                        
+                                    
+                                    </p>
 
-                        </p>
-                        <p class="description">
-                            Trabajo 2
-                            <br>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis adipisci maiores vel tempore
-                            ab
-                            officiis omnis laborum! Molestias earum pariatur nobis, ullam non, consequuntur fugit, id
-                            eligendi possimus hic magnam.
+                                    <?php    
 
-                        </p>
+                                    $i++;
+                                        }
+                                }else {
+                                    echo "<br><h5 class='descripcion'>Sin Trabajos</h5>";
+                                }
+                                ?>
                     </div>
 
                 </div>

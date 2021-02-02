@@ -145,7 +145,7 @@ session_start();
                                         placeholder="Nombre del trabajo..." required>
                                 </div>
                             </div>
-                            <div class="form-group mt-5 mb-5">
+                            <div class="form-group">
                                 <div class="col-xs-6">
                                     <textarea rows="8" cols="20" class="form-control" name="desc_trabajo"
                                         placeholder="Una descripción del trabajo..."  required></textarea>
