@@ -13,7 +13,11 @@ if(empty($_REQUEST['id'])){
     $ACTUALIZARredes = "UPDATE usuario SET NUM_REDES='$nuevo_num' WHERE ID_PERSONA ='$idusuario2'";
     $actualizar2 = mysqli_query($conexion,$ACTUALIZARredes);
     if($row[0] == null){
-        header("location: perfil.php?id=$idusuario2");
+        echo "<script>
+        alert('El usuario no ha registrado su Facebook');
+        window.location = 'perfil.php?id=$idusuario2';
+        </script>";
+        // header("location: perfil.php?id=$idusuario2");
     }else{
         header("location: $row[0] ");
     }

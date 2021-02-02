@@ -14,7 +14,10 @@ if(empty($_REQUEST['id'])){
     $actualizar2 = mysqli_query($conexion,$actualizarSMS);
 
     if($row[0] == null){
-        header("location: perfil.php?id=$idusuario2");
+        echo "<script>
+        alert('El usuario no ha registrado su WhatsApp');
+        window.location = 'perfil.php?id=$idusuario2';
+        </script>";
     }else{
         header("location: https://api.whatsapp.com/send?phone=$row[0]&text=Estoy interesado en su perfil de TeContrato.com");
     }

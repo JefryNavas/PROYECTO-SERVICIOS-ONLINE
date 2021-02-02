@@ -14,7 +14,10 @@ if(empty($_REQUEST['id'])){
     $actualizar2 = mysqli_query($conexion,$ACTUALIZARredes);
 
     if($row[0] == null){
-        header("location: perfil.php?id=$idusuario2");
+        echo "<script>
+        alert('El usuario no ha registrado su Instagram');
+        window.location = 'perfil.php?id=$idusuario2';
+        </script>";
     }else{
         header("location: $row[0] ");
     }
