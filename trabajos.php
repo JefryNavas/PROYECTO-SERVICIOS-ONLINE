@@ -190,7 +190,7 @@ session_start();
                         <tbody>
                         <?php
                         $ID = $_SESSION['ID_PERSONA'];
-                        $query = "SELECT NOMBRE_TRABAJO,DESCRIPCION,ID_TRABAJO FROM TRABAJOS WHERE ID_PERSONA = '$ID'";
+                        $query = "SELECT NOMBRE_TRABAJO,DESCRIPCION,ID_TRABAJO FROM trabajos WHERE ID_PERSONA = '$ID'";
                         include 'conexion.php';
                         $llenarTrabajo= mysqli_query($conexion,$query);
                         $result = mysqli_num_rows($llenarTrabajo);
@@ -216,7 +216,7 @@ session_start();
                                     <?php
                                             if (isset($_POST['btnBorrar'])) {
                                                 $borrar_id = $_POST['btnBorrar'];
-                                                $borrar = "DELETE FROM TRABAJOS WHERE ID_TRABAJO = '$borrar_id'";
+                                                $borrar = "DELETE FROM trabajos WHERE ID_TRABAJO = '$borrar_id'";
                                                 include "conexion.php";
                                                 $ejecutar = mysqli_query($conexion, $borrar);
                                                 if ($ejecutar) {

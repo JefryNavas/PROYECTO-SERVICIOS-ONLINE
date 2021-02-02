@@ -242,7 +242,7 @@ if(empty($_REQUEST['id'])){
                                     <div class="row">
                                     <?php
                                         $ID = $idusuario;
-                                        $query4 = "SELECT f.FOTO1,f.FOTO2 FROM FORMACION f,USUARIO U WHERE f.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
+                                        $query4 = "SELECT f.FOTO1,f.FOTO2 FROM formacion f,usuario U WHERE f.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
                                         include "conexion.php";
                                         $IMGS_F = mysqli_query($conexion,$query4);
                                         $result = mysqli_num_rows($IMGS_F);
@@ -271,7 +271,7 @@ if(empty($_REQUEST['id'])){
                                     <div class="row">
                                     <?php
                                         $ID = $idusuario;
-                                        $query5 = "SELECT t.FOTO1,t.FOTO2,t.FOTO3 FROM TRABAJOS t,USUARIO U WHERE t.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
+                                        $query5 = "SELECT t.FOTO1,t.FOTO2,t.FOTO3 FROM trabajos t,usuario U WHERE t.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
                                         include "conexion.php";
                                         $IMGS_T = mysqli_query($conexion,$query5);
                                         $result5 = mysqli_num_rows($IMGS_T);
@@ -311,7 +311,7 @@ if(empty($_REQUEST['id'])){
                         <h3 class="description">FORMACIÓN</h3>
                         <?php
                         $ID = $idusuario;
-                        $query = "SELECT f.DESCRIPCION FROM FORMACION f,USUARIO U WHERE f.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
+                        $query = "SELECT f.DESCRIPCION FROM formacion f,usuario U WHERE f.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
                         include "conexion.php";
                         $DESC_F = mysqli_query($conexion,$query);
                         $result = mysqli_num_rows($DESC_F);
@@ -339,7 +339,7 @@ if(empty($_REQUEST['id'])){
                         <h3 class="description">TRABAJOS</h3>
                     <?php
                         $ID = $idusuario;
-                        $query2 = "SELECT T.NOMBRE_TRABAJO,T.DESCRIPCION FROM TRABAJOS T,USUARIO U WHERE T.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
+                        $query2 = "SELECT T.NOMBRE_TRABAJO,T.DESCRIPCION FROM trabajos T,usuario U WHERE T.ID_PERSONA = '$ID' AND U.ID_PERSONA = '$ID'";
                         include "conexion.php";
                         $DESC_T = mysqli_query($conexion,$query2);
                         $result2 = mysqli_num_rows($DESC_T);

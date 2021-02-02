@@ -132,7 +132,7 @@ session_start();
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <div class="display-4">Descripción del trabajo</div>
+                            <div class="display-4">Descripción</div>
                             <div class="form-group mt-5 mb-5">
                                 <div class="col-xs-6">
                                     <textarea rows="8" cols="20" class="form-control" name="desc_formacion"
@@ -177,7 +177,7 @@ session_start();
                         <tbody>
                         <?php
                         $ID = $_SESSION['ID_PERSONA'];
-                        $query = "SELECT DESCRIPCION,ID_FORMACION FROM FORMACION WHERE ID_PERSONA = '$ID'";
+                        $query = "SELECT DESCRIPCION,ID_FORMACION FROM formacion WHERE ID_PERSONA = '$ID'";
                         include 'conexion.php';
                         $llenarFormacion = mysqli_query($conexion,$query);
                         $result = mysqli_num_rows($llenarFormacion);
