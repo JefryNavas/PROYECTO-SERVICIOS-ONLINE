@@ -70,16 +70,14 @@ $mail_usuario = array(
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="usuarios.php">Perfil</a>
                     </li>
-
                     <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">  EDITAR PERFIL </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="datos.php">DATOS PERSONALES</a></li>
-                                <li><a class="dropdown-item" href="formacion.php">FORMACIÓN</a></li>
-                                <li><a class="dropdown-item" href="trabajos.php">TRABAJOS</a></li>
-                            </ul>
+                        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> EDITAR PERFIL </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="datos.php">DATOS PERSONALES</a></li>
+                            <li><a class="dropdown-item" href="formacion.php">FORMACIÓN</a></li>
+                            <li><a class="dropdown-item" href="trabajos.php">TRABAJOS</a></li>
+                        </ul>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
@@ -114,7 +112,7 @@ $mail_usuario = array(
                                 }
                             ?>
                                 <img src="<?php echo $link ?>" alt="FOTO NO REGISTRADA"
-                                    class="img-raised rounded-circle img-fluid">
+                                    class="img-raised rounded-circle">
                             </div>
                             <div class="name">
                                 <h3 class="title">

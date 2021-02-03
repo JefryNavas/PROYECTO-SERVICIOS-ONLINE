@@ -57,8 +57,8 @@ if(!empty($_SESSION['active'])){
             $_SESSION['ID_TIPO'] = $row['ID_TIPO']; 
             $_SESSION['NOMBRE'] = $row['NOMBRE'];
             $_SESSION['PSWD'] = $row['PSWD'];
-            $_SESSION['ID_SERVICIO'] = $row[0];
-            $_SESSION['NOMBRE_SERVICIO'] = $row[1];
+            $_SESSION['ID_SERVICIO'] = $row['ID_SERVICIOS'];
+            $_SESSION['NOMBRE_SERVICIO'] = $row['NOMBRE_SERVICIO'];
             $_SESSION['EDAD'] = $row['EDAD'];
             $_SESSION['TELEFONO'] = $row['TELEFONO'];
             $_SESSION['CELULAR'] = $row['CELULAR'];
@@ -68,7 +68,7 @@ if(!empty($_SESSION['active'])){
             $_SESSION['INSTAGRAM'] = $row['INSTAGRAM'];
             $_SESSION['ID_PERSONA'] = $row['ID_PERSONA'];
             $_SESSION['ID_LUGAR'] = $row['ID_LUGAR'];
-            $_SESSION['NOMBRE_LUGAR'] = $row['nombre_lugar'];
+            $_SESSION['NOMBRE_LUGAR'] = $row['NOMBRE_LUGAR'];
             $_SESSION['DESCRIPCION'] = $row['DESCRIPCION'];
             $_SESSION['NUM_VISITAS'] = $row['NUM_VISITAS'];
             $_SESSION['NUM_REDES'] = $row['NUM_REDES'];
@@ -561,7 +561,7 @@ $persona = array(
                                     </div>
                                     <div class="form-group">
                                         <input type="text" name='nombre' class="form-control"
-                                            placeholder="Tu nombre ..." required>
+                                            placeholder="Tu nombre y apellido ..." required>
                                     </div>
                                     <div class="form-group">
                                         <input type="number" name='edad' class="form-control" placeholder="Tu edad ..."
@@ -624,7 +624,7 @@ $persona = array(
                     </div>
                     <br>
                     <div class="modal-footer d-flex justify-content-center">
-                        <div class="signup-section">¿No eres miembro todavía? <a id="registrar" data-toggle="modal"
+                        <div class="signup-section">¿Ya eres miembro? <a id="registrar" data-toggle="modal"
                                 data-target="#registerModal" class="text-info">Iniciar</a>.</div>
                     </div>
 

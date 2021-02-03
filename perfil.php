@@ -125,7 +125,7 @@ if(empty($_REQUEST['id'])){
                                 }
                             ?>
                                 <img src="<?php echo $link ?>" alt="FOTO NO REGISTRADA"
-                                    class="img-raised rounded-circle img-fluid">
+                                    class="img-raised rounded-circle" width="auto" height="250">
                             </div>
                             <div class="name">
                                 <h3 class="title">

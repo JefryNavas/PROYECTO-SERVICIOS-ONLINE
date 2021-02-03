@@ -48,13 +48,7 @@ session_start();
                             Paneles
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-                            data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Navegación</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Barra de Navegación</a>
-                            </nav>
-                        </div>
+
 
 
 

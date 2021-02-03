@@ -1546,7 +1546,7 @@ include ('conexion.php');
                 <div class="col-sm-3 col-md-4 col-lg-4 text-lg-left">Copyright © TeContrato.com 2021</div>
                 <div class="col-sm-6 col-md-4 col-lg-4 my-3 my-lg-0">
                     <a class="btn btn-dark btn-social mx-2" href="mailto:
-                <?php echo $persona[" datos"]["correo"]; ?>
+                <?php echo $persona["datos"]["correo"]; ?>
                         ?subject=
                         <?php echo $persona["datos"]["asunto"]; ?>
                         &body=
@@ -1554,7 +1554,7 @@ include ('conexion.php');
                         "><i class="fas fa-envelope-open-text"></i>
                     </a>
                     <a class="btn btn-dark btn-social mx-2" href="https://api.whatsapp.com/send?phone=
-                    <?php echo $persona[" datos"]["fono"]; ?>&text=
+                    <?php echo $persona["datos"]["fono"]; ?>&text=
                         <?php echo $persona["datos"]["msg"]; ?>" target="_blank"><i class="fab fa-whatsapp"></i>
                     </a>
                 </div>

@@ -22,16 +22,8 @@ if (isset($_FILES["file"]))
       {
           
       }
-      else if($size > 3024*3024)
-      {
-         
-      }
-      else if($width > 3000 || $height > 3000)
-      {
-          
-      }
          else {
-
+                $nombre = "imagen".$x;
                 $src = $carpeta.$id_unico.$nombre;
 
                         move_uploaded_file($ruta_provisional, $src);       

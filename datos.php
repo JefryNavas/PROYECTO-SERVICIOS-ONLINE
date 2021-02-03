@@ -238,8 +238,8 @@ session_start();
                                         <label for="mobile">
                                             <h4>Celular (WhatsApp)</h4>
                                         </label>
-                                        <input type="text" class="form-control" name="mobile" id="mobile"
-                                            placeholder="tu número celular..." value="<?php echo $_SESSION['CELULAR'] 
+                                        <input type="text" class="form-control" pattern="[0-9]{1,15}" name="mobile" id="mobile"
+                                            placeholder="tu número celular..."  value="<?php echo $_SESSION['CELULAR'] 
                                             ?>">
                                     </div>
 
@@ -405,7 +405,13 @@ session_start();
                                 $lugar = $_POST["lugar"];
                                 $extencion = '593';
                                 $celular = $_POST["mobile"];
+                                
+                                $rest = substr($celular, 0, 3);
+                                if($rest =='593'){
+                                $extencion=$celular;
+                                }else{
                                 $extencion .=$celular;
+                                }
                                 $descripcion = $_POST["desc"];
                                 $ID = $_SESSION['ID_PERSONA'];
                                 $ACTUALIZARDatos = "UPDATE usuario SET NOMBRE='$nombre',
@@ -425,6 +431,15 @@ session_start();
                                     $_SESSION['CELULAR'] = $celular;
                                     $_SESSION['ID_LUGAR'] = $lugar;
                                     $_SESSION['DESCRIPCION'] = $descripcion;
+                                    if($lugar == 1){
+                                        $_SESSION['NOMBRE_LUGAR'] = "Quito";
+                                    } else if ($lugar == 2){
+                                         $_SESSION['NOMBRE_LUGAR'] = "Guayaquil";
+                                    }else if ($lugar == 3){
+                                         $_SESSION['NOMBRE_LUGAR'] = "Cuenca";
+                                    }else if ($lugar == 4){
+                                         $_SESSION['NOMBRE_LUGAR'] = "Ambato";
+                                    }
                                     echo '<script> 
             
            
@@ -451,8 +466,21 @@ session_start();
                                 $actualizar2 = mysqli_query($conexion,$ACTUALIZARDatos2);
 
                                 if($actualizar2 == TRUE){
-                                    $_SESSION['ID_SERVICIO'] = $servicio;
+                                    $_SESSION['ID_SERVICIO'] = $serv;
                                     $_SESSION['AN_EXPERIENCIA'] = $a_exp;
+                                    if($serv == 1){
+                                        $_SESSION['NOMBRE_SERVICIO'] = "Albañilería";
+                                    } else if ($serv == 2){
+                                        $_SESSION['NOMBRE_SERVICIO'] = "Carpintería";
+                                    }else if ($serv == 3){
+                                       $_SESSION['NOMBRE_SERVICIO'] = "Plomería";
+                                    }else if ($serv == 4){
+                                        $_SESSION['NOMBRE_SERVICIO'] = "Transportación";
+                                    }else if ($serv == 5){
+                                        $_SESSION['NOMBRE_SERVICIO'] = "Cuidado de Niños";
+                                    }else if ($serv == 6){
+                                        $_SESSION['NOMBRE_SERVICIO'] = "Soporte Técnico";
+                                    }
                                     
                                     echo '<script> 
 

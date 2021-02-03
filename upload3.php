@@ -21,27 +21,15 @@ if (isset($_FILES["file"]))
       {
           
       }
-      else if($size > 1024*1024)
-      {
-          
-      }
-      else if($width > 3000 || $height > 3000)
-      {
-          
-      }
-      else if($width < 60 || $height < 60)
-      {
-          
-      }
       else
       {
+          $nombre = "imagen".$x;
           $src = $carpeta.$id_unico.$nombre;
           move_uploaded_file($ruta_provisional, $src);       
 
           array_push($fotos,$carpeta.$id_unico.$nombre);
       }
     }
-    echo $reporte;
 
     $desc_formacion = $_POST['desc_formacion'];
     $ID = $_SESSION['ID_PERSONA'];
